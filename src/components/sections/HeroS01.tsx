@@ -53,22 +53,23 @@ export function HeroS01() {
       </svg>
 
       <motion.div
-        className="relative z-10 flex h-full max-w-[720px] flex-col justify-center px-6 md:px-12 lg:px-16"
+        className="relative z-10 h-full w-full"
         style={{ y, opacity }}
         variants={stagger}
         initial="hidden"
         animate="show"
       >
-        <motion.span variants={item} className="t-label text-text-accent-red">
+        <motion.span
+          variants={item}
+          className="absolute left-6 top-20 md:left-12 md:top-28 t-label text-text-accent-red"
+        >
           Permanentka 2026/2027
         </motion.span>
-        <motion.h1 variants={item} className="mt-4 t-display-m md:t-display-d uppercase text-text-primary">
-          [HERO_CLAIM]
-        </motion.h1>
-        <motion.p variants={item} className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary">
-          [HERO_SUBCLAIM]
-        </motion.p>
-        <motion.div variants={item} className="mt-8">
+        <motion.div
+          variants={item}
+          className="absolute left-6 md:left-12 lg:left-16"
+          style={{ top: "75%" }}
+        >
           <PrimaryButton href="#pricing">Koupit permanentku</PrimaryButton>
         </motion.div>
       </motion.div>
