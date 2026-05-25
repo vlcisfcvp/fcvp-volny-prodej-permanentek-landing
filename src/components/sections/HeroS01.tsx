@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useRef } from "react";
 import { ScrollIndicator } from "../layout/ScrollIndicator";
 import { PrimaryButton } from "../ui/PrimaryButton";
@@ -9,10 +9,10 @@ export function HeroS01() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
-  const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
-  const item = {
+  const stagger: Variants = { hidden: {}, show: { transition: { staggerChildren: 0.12 } } };
+  const item: Variants = {
     hidden: { opacity: 0, y: 16 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } },
   };
 
   return (
