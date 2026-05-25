@@ -65,7 +65,7 @@ export function HeroS01() {
         <motion.div
           variants={item}
           className="absolute left-6 md:left-12 lg:left-16"
-          style={{ top: "75%" }}
+          style={{ top: "85%" }}
         >
           <PrimaryButton href="#pricing">Koupit permanentku</PrimaryButton>
         </motion.div>
