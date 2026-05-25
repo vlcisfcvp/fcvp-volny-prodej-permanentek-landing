@@ -37,9 +37,6 @@ export function HeroS01() {
       <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,17,41,0.7) 0%, rgba(14,17,41,0) 40%)" }} aria-hidden />
 
       {/* logo top-left */}
-      <div className="absolute left-6 top-6 md:left-12 md:top-12 t-label text-text-primary">
-        FC VIKTORIA PLZEŇ
-      </div>
 
       {/* decorative V outline, desktop only */}
       <svg
