@@ -1,0 +1,112 @@
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Check } from "lucide-react";
+import { PrimaryButton } from "../ui/PrimaryButton";
+
+const standardFeatures = [
+  "Tvoje místo na všech 17 domácích zápasech",
+  "Vstupenky na MOL Cup doma",
+  "Sleva 200 Kč do Klubovky",
+  "Sleva 300 Kč do fanshopu",
+  "Přednostní nákup na evropské poháry",
+  "Výhody u partnerů Viktorie",
+];
+const extraFeatures = [
+  "Vše ze STANDARD",
+  "Vstupenky na nadstavbu Chance ligy",
+  "Bonusové slevy v Klubovce a fanshopu",
+  "Exkluzivní akce pro permanentkáře EXTRA",
+  "Speciální dárek k sezoně",
+  "Prioritní přístup na vybrané akce",
+];
+
+export function PricingS09() {
+  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  return (
+    <section id="s09" aria-label="Varianty permanentky" className="bg-bg-section py-24 md:py-32">
+      <div id="pricing" className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
+        <div className="mx-auto max-w-reading text-center">
+          <span className="t-label text-text-accent-red">Vyber si variantu</span>
+          <h2 className="mt-4 t-h2-m md:t-h2-d text-text-primary">
+            STANDARD nebo EXTRA? Vyber si, co ti sedí nejlíp
+          </h2>
+          <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary">
+            Dvě varianty permanentek. Každá má něco navíc – a obě ti zaručí sezónu plnou fotbalu.
+          </p>
+        </div>
+
+        <div ref={ref} className="mx-auto mt-12 grid max-w-pricing gap-4 md:grid-cols-2 md:gap-6 items-stretch">
+          {/* EXTRA first (left/top) */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0 }}
+            className="relative order-1 rounded-xl p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1"
+            style={{
+              background: "linear-gradient(#252a52, #252a52) padding-box, linear-gradient(135deg, #e0001a 0%, #005ea7 100%) border-box",
+              border: "1.5px solid transparent",
+              boxShadow: "0 16px 48px rgba(224, 0, 26, 0.15)",
+            }}
+          >
+            <motion.span
+              animate={{ boxShadow: ["0 0 16px rgba(224,0,26,0.4)", "0 0 24px rgba(224,0,26,0.7)", "0 0 16px rgba(224,0,26,0.4)"] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-pill bg-cta-primary px-4 py-1 t-label text-white"
+            >
+              Doporučujeme
+            </motion.span>
+            <span className="t-label text-text-accent-red">Extra</span>
+            <p className="mt-3 t-body text-text-secondary">
+              Chceš jít ještě dál a fandit i v napínavé nadstavbě? EXTRA je pro tebe ta pravá.
+            </p>
+            <div className="mt-6 tabular t-numeric-m md:t-numeric-d text-text-primary">od [EXTRA_PRICE] Kč</div>
+            <div className="mt-1 t-body-small text-text-tertiary">za sezonu / 17 zápasů + nadstavba</div>
+            <ul className="mt-6 space-y-3">
+              {extraFeatures.map((f, i) => (
+                <li key={i} className="flex items-start gap-2 t-body text-text-primary" style={{ fontWeight: i < 3 ? 600 : 400 }}>
+                  <Check size={16} className="mt-1 flex-none text-text-accent-red" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <PrimaryButton href="https://bit.ly/4jWo0ke" className="w-full">Koupit EXTRA</PrimaryButton>
+            </div>
+            <p className="mt-3 t-body-small text-text-tertiary">
+              Přihlášení přes Viktoria Key — registrace zdarma, trvá 2 minuty.
+            </p>
+          </motion.div>
+
+          {/* STANDARD */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="order-2 rounded-xl border border-border-default bg-bg-elevated p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1 md:hover:border-border-strong"
+          >
+            <span className="t-label text-text-secondary">Standard</span>
+            <p className="mt-3 t-body text-text-secondary">
+              Chceš mít své místo jisté na každý zápas ligy a domácího poháru? Sáhni po variantě STANDARD.
+            </p>
+            <div className="mt-6 tabular t-numeric-m md:t-numeric-d text-text-primary">od [STANDARD_PRICE] Kč</div>
+            <div className="mt-1 t-body-small text-text-tertiary">za sezonu / 17 zápasů</div>
+            <ul className="mt-6 space-y-3">
+              {standardFeatures.map((f, i) => (
+                <li key={i} className="flex items-start gap-2 t-body text-text-primary">
+                  <Check size={16} className="mt-1 flex-none text-text-accent-blue" />
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6">
+              <PrimaryButton href="https://bit.ly/4j7TSS2" className="w-full">Koupit STANDARD</PrimaryButton>
+            </div>
+            <p className="mt-3 t-body-small text-text-tertiary">
+              Přihlášení přes Viktoria Key — registrace zdarma, trvá 2 minuty.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
