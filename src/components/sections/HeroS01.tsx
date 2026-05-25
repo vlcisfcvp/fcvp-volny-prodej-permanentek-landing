@@ -26,7 +26,7 @@ export function HeroS01() {
       <div
         className="absolute inset-0 bg-bg-section"
         style={{
-          backgroundImage: "url(/placeholder-hero.jpg)",
+          backgroundImage: "url(/hero-main.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
