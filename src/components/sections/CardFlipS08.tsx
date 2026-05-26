@@ -46,7 +46,7 @@ export function CardFlipS08() {
     <section id="s08" aria-label="Karta permanentky" className="relative bg-bg-base py-24 md:py-32 v-edge-top">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <p className="text-center t-body-large-m md:t-body-large-d text-text-secondary">
-          Podívej se, co tvoje permanentka umí.
+          Otoč permanentku a podívej se, jak to vypadalo loni.
         </p>
         <motion.div
           ref={ref}
