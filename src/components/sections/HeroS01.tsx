@@ -32,22 +32,7 @@ export function HeroS01() {
         }}
         aria-hidden
       />
-      {/* overlays */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,17,41,0) 0%, rgba(14,17,41,0.4) 50%, rgba(14,17,41,0.95) 100%)" }} aria-hidden />
-      <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,17,41,0.7) 0%, rgba(14,17,41,0) 40%)" }} aria-hidden />
-
       {/* logo top-left */}
-
-      {/* decorative V outline, desktop only */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute right-0 bottom-0 hidden md:block"
-        style={{ height: "80vh" }}
-        viewBox="0 0 400 400"
-        fill="none"
-      >
-        <path d="M40 40 L200 360 L360 40" stroke="rgba(255,255,255,0.06)" strokeWidth="2" />
-      </svg>
 
       <motion.div
         className="relative z-10 h-full w-full"
@@ -56,12 +41,6 @@ export function HeroS01() {
         initial="hidden"
         animate="show"
       >
-        <motion.span
-          variants={item}
-          className="absolute left-6 top-20 md:left-12 md:top-28 t-label text-text-accent-red"
-        >
-          Permanentka 2026/2027
-        </motion.span>
         <motion.div
           variants={item}
           className="absolute left-6 md:left-12 lg:left-16"
