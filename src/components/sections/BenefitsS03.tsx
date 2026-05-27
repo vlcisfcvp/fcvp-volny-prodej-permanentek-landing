@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { MapPin, TrendingDown, Ticket, Beer, ShoppingBag, Gift, type LucideIcon } from "lucide-react";
+import { Armchair, TrendingDown, Ticket, Beer, Shirt, Gift, type LucideIcon } from "lucide-react";
 
 const items: { icon: LucideIcon; title: string; desc: string }[] = [
-  { icon: MapPin, title: "Tvoje místo na každém domácím utkání", desc: "Chance liga a MOL Cup bez starostí." },
+  { icon: Armchair, title: "Tvoje místo na každém domácím utkání", desc: "Chance liga a MOL Cup bez starostí." },
   { icon: TrendingDown, title: "Nižší cena než u jednotlivých vstupenek", desc: "Úspora několik stovek korun za sezonu." },
   { icon: Ticket, title: "Přednostní nákup vstupenek na evropské poháry", desc: "Buď první v řadě, když Viktoria postoupí." },
   { icon: Beer, title: "200 Kč sleva do Klubovky", desc: "Tvoje místo pro předzápasovou náladu." },
-  { icon: ShoppingBag, title: "300 Kč sleva do fanshopu", desc: "Dresy, šály a oficiální merchandise." },
+  { icon: Shirt, title: "300 Kč sleva do fanshopu", desc: "Dresy, šály a oficiální merchandise." },
   { icon: Gift, title: "Celoroční výhody u partnerů klubu", desc: "Slevy a benefity mimo stadion. Viz sekce Partneři." },
+
 ];
 
 export function BenefitsS03() {
