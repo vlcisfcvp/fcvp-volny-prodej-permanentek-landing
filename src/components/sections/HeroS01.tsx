@@ -45,7 +45,7 @@ export function HeroS01() {
         <motion.div
           variants={item}
           className="absolute left-1/2 -translate-x-1/2 bottom-12 md:left-12 md:bottom-auto md:translate-x-0 lg:left-16"
-          style={{}}
+          style={{ top: undefined }}
         >
           <PrimaryButton href="#pricing">Koupit permanentku</PrimaryButton>
         </motion.div>
