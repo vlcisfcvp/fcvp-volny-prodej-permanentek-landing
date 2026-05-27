@@ -20,7 +20,7 @@ export function HeroS01() {
       id="s01"
       ref={ref}
       aria-label="Hero"
-      className="relative h-[100svh] w-full overflow-hidden md:h-screen"
+      className="relative h-[100svh] w-full overflow-hidden"
     >
       {/* background image - responsive */}
       <div
