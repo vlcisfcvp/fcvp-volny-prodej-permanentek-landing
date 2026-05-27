@@ -20,17 +20,23 @@ export function HeroS01() {
       id="s01"
       ref={ref}
       aria-label="Hero"
-      className="relative h-[100svh] w-full overflow-hidden"
+      className="relative w-full overflow-hidden md:h-[100vh]"
     >
-      {/* background image - responsive */}
+      {/* mobile: img element drives section height */}
+      <img
+        src="/hero-mobile.jpg"
+        alt=""
+        aria-hidden
+        className="block h-auto w-full md:hidden"
+      />
+      {/* desktop: background image */}
       <div
-        className="absolute inset-0 bg-[url('/hero-mobile.jpg')] md:bg-[url('/hero-desktop.jpg')] bg-cover bg-center"
+        className="absolute inset-0 hidden md:block bg-[url('/hero-desktop.jpg')] bg-cover bg-center"
         aria-hidden
       />
-      {/* logo top-left */}
 
       <motion.div
-        className="relative z-10 h-full w-full"
+        className="absolute inset-0 z-10"
         style={{ y, opacity }}
         variants={stagger}
         initial="hidden"
@@ -38,14 +44,16 @@ export function HeroS01() {
       >
         <motion.div
           variants={item}
-          className="absolute left-6 md:left-12 lg:left-16"
-          style={{ top: "85%" }}
+          className="absolute left-1/2 -translate-x-1/2 bottom-12 md:left-12 md:bottom-auto md:translate-x-0 lg:left-16"
+          style={{}}
         >
           <PrimaryButton href="#pricing">Koupit permanentku</PrimaryButton>
         </motion.div>
       </motion.div>
 
-      <ScrollIndicator />
+      <div className="hidden md:block">
+        <ScrollIndicator />
+      </div>
     </section>
   );
 }
