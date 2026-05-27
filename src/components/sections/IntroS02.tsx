@@ -33,15 +33,16 @@ export function IntroS02() {
             initial={{ opacity: 0, x: 24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="relative overflow-hidden rounded-lg border border-border-subtle"
-            style={{ aspectRatio: "4/5" }}
+            className="relative overflow-hidden"
+            style={{ aspectRatio: "4/5", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)" }}
           >
             <div
-              className="absolute inset-0 bg-bg-elevated"
-              style={{ backgroundImage: "url(/placeholder-s02.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+              className="absolute inset-0"
+              style={{ backgroundImage: "url(/s02-fans.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
               aria-hidden
             />
             <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,17,41,0) 0%, rgba(14,17,41,0.4) 50%, rgba(14,17,41,0.95) 100%)" }} aria-hidden />
+
           </motion.div>
         </div>
       </div>
