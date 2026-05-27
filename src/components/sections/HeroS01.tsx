@@ -22,14 +22,9 @@ export function HeroS01() {
       aria-label="Hero"
       className="relative h-[100svh] w-full overflow-hidden md:h-screen"
     >
-      {/* background image placeholder */}
+      {/* background image - responsive */}
       <div
-        className="absolute inset-0 bg-bg-section"
-        style={{
-          backgroundImage: "url(/hero-main.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        className="absolute inset-0 bg-[url('/hero-mobile.jpg')] md:bg-[url('/hero-desktop.jpg')] bg-cover bg-center"
         aria-hidden
       />
       {/* logo top-left */}
