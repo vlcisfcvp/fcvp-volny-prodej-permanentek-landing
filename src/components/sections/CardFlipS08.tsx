@@ -1,16 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Check, Hand } from "lucide-react";
-import { PrimaryButton } from "../ui/PrimaryButton";
+import { Hand } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
-
-const benefits = [
-  "Své místo na celou sezonu",
-  "Sleva oproti jednotlivým vstupenkám",
-  "Bonusy v Klubovce a fanshopu",
-  "Výhody u partnerů Viktorie",
-];
+import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 
 export function CardFlipS08() {
   const [flipped, setFlipped] = useState(false);
