@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Cpu, Check, Hand } from "lucide-react";
+import { Check, Hand } from "lucide-react";
 import { PrimaryButton } from "../ui/PrimaryButton";
-import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 
 const benefits = [
   "Své místo na celou sezonu",
@@ -72,39 +71,15 @@ export function CardFlipS08() {
           >
             {/* Front */}
             <div
-              className="absolute inset-0 overflow-hidden rounded-xl border"
+              className="absolute inset-0 overflow-hidden border"
               style={{
                 backfaceVisibility: "hidden",
+                background: "linear-gradient(135deg, #1c2143 0%, #005ea7 100%)",
                 borderColor: "rgba(255,255,255,0.18)",
                 boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
                 borderRadius: 24,
               }}
-            >
-              <img
-                src={cardFrontImage.url}
-                alt="Permanentka Extra 2026/2027"
-                className="absolute inset-0 h-full w-full"
-                style={{ objectFit: "cover", objectPosition: "center" }}
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(14,17,41,0.15) 0%, rgba(14,17,41,0.55) 100%)",
-                }}
-              />
-              <div className="absolute inset-0 p-6">
-                <div className="flex items-start justify-between">
-                  <span className="t-label text-text-primary">FCVP</span>
-                  <Cpu size={24} className="text-text-secondary opacity-60" />
-                </div>
-                <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                  <span className="t-label text-text-primary">[CARD_SECTOR_NAME]</span>
-                  <span className="t-label text-text-accent-red">2026/2027</span>
-                </div>
-              </div>
-            </div>
+            />
             {/* Back */}
             <div
               className="absolute inset-0 rounded-xl border border-border-blue bg-bg-elevated p-6"
