@@ -11,6 +11,18 @@ export function CardFlipS08() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const cardRef = useRef<HTMLDivElement>(null);
+  const backVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = backVideoRef.current;
+    if (!v) return;
+    if (flipped) {
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+      try { v.currentTime = 0; } catch {}
+    }
+  }, [flipped]);
 
   useEffect(() => {
     if (typeof window !== "undefined" && sessionStorage.getItem("s08-flipped-once")) {
