@@ -4,7 +4,7 @@ import { HeroS01 } from "@/components/sections/HeroS01";
 import { IntroS02 } from "@/components/sections/IntroS02";
 import { BenefitsS03 } from "@/components/sections/BenefitsS03";
 import { PartnersS04 } from "@/components/sections/PartnersS04";
-import { AtmosphereS05 } from "@/components/sections/AtmosphereS05";
+
 import { VideoS06 } from "@/components/sections/VideoS06";
 
 import { CardFlipS08 } from "@/components/sections/CardFlipS08";
@@ -25,7 +25,6 @@ function Index() {
       <HeroS01 />
       <IntroS02 />
       <BenefitsS03 />
-      <AtmosphereS05 />
       <VideoS06 />
       
       <CardFlipS08 />

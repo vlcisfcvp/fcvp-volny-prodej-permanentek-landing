@@ -15,7 +15,7 @@ const items: { icon: LucideIcon; title: string; desc: string }[] = [
 export function BenefitsS03() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
-    <section id="s03" aria-label="Výhody" className="bg-bg-section pt-24 pb-0 md:pt-32 md:pb-0">
+    <section id="s03" aria-label="Výhody" className="bg-bg-section py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
           <span className="t-label text-text-accent-red">Výhody permanentky</span>
