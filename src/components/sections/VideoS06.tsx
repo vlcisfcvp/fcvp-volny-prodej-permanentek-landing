@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Play } from "lucide-react";
+import { Play, Volume2, VolumeX } from "lucide-react";
 import atmosphereVideo from "@/assets/atmosphere.mp4.asset.json";
 
 export function VideoS06() {
@@ -9,6 +9,15 @@ export function VideoS06() {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [showFallback, setShowFallback] = useState(false);
+  const [muted, setMuted] = useState(true);
+
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const next = !video.muted;
+    video.muted = next;
+    setMuted(next);
+  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -93,6 +102,36 @@ export function VideoS06() {
               <Play size={32} className="text-white" fill="white" />
             </button>
           )}
+          <button
+            type="button"
+            onClick={toggleMute}
+            aria-label={muted ? "Zapnout zvuk" : "Vypnout zvuk"}
+            aria-pressed={!muted}
+            className="absolute flex items-center justify-center"
+            style={{
+              bottom: 16,
+              right: 16,
+              width: 40,
+              height: 40,
+              borderRadius: 9999,
+              background: "rgba(28, 33, 67, 0.85)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255, 255, 255, 0.14)",
+              cursor: "pointer",
+              transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(28, 33, 67, 1)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.24)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(28, 33, 67, 0.85)";
+              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.14)";
+            }}
+          >
+            {muted ? <VolumeX size={18} color="#ffffff" /> : <Volume2 size={18} color="#ffffff" />}
+          </button>
         </motion.div>
       </div>
     </section>
