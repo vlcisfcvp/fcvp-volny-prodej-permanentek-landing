@@ -226,7 +226,7 @@ function Banner({ inView }: { inView: boolean }) {
       transition={{ duration: 0.5, delay: 0.7, ease: EASE }}
       className="relative mx-auto mt-8 w-full max-w-[880px] overflow-hidden md:rounded-[16px]"
       style={{
-        aspectRatio: "16 / 7",
+        aspectRatio: "9 / 16",
       }}
     >
       <div className="hidden md:block absolute inset-0 rounded-[16px]" style={{ border: "1px solid rgba(255,255,255,0.08)", pointerEvents: "none", zIndex: 2 }} />
@@ -234,7 +234,7 @@ function Banner({ inView }: { inView: boolean }) {
         src="/s10-banner.jpg"
         alt="Viktoria Key"
         className="block w-full h-full"
-        style={{ objectFit: "cover", objectPosition: "center" }}
+        style={{ objectFit: "cover", objectPosition: "center top" }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
@@ -245,7 +245,7 @@ function Banner({ inView }: { inView: boolean }) {
       />
       <style>{`
         @media (min-width: 768px) {
-          .s10-banner-wrap { aspect-ratio: 16 / 5 !important; }
+          .s10-banner-wrap { aspect-ratio: 16 / 9 !important; }
         }
       `}</style>
     </motion.div>
