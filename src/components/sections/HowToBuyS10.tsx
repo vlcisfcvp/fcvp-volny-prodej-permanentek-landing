@@ -228,9 +228,15 @@ function Banner({ inView }: { inView: boolean }) {
     >
       <div className="s10-banner-border hidden md:block absolute inset-0 rounded-[16px]" style={{ border: "1px solid rgba(255,255,255,0.08)", pointerEvents: "none", zIndex: 2 }} />
       <img
-        src="/s10-banner.jpg"
+        src="/s10-banner-desktop.jpg"
         alt="Viktoria Key"
-        className="block w-full h-full"
+        className="hidden md:block w-full h-full"
+        style={{ objectFit: "cover", objectPosition: "center top" }}
+      />
+      <img
+        src="/s10-banner-mobile.jpg"
+        alt="Viktoria Key"
+        className="block md:hidden w-full h-full"
         style={{ objectFit: "cover", objectPosition: "center top" }}
       />
       <div
@@ -258,6 +264,7 @@ function Banner({ inView }: { inView: boolean }) {
           }
         }
       `}</style>
+
     </motion.div>
   );
 }
