@@ -231,7 +231,7 @@ function Banner({ inView }: { inView: boolean }) {
     >
       <div className="hidden md:block absolute inset-0 rounded-[16px]" style={{ border: "1px solid rgba(255,255,255,0.08)", pointerEvents: "none", zIndex: 2 }} />
       <img
-        src="/viktoria-key-banner.jpg"
+        src="/s10-banner.jpg"
         alt="Viktoria Key"
         className="block w-full h-full"
         style={{ objectFit: "cover", objectPosition: "center" }}
