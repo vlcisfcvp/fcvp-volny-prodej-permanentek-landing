@@ -224,7 +224,7 @@ function Banner({ inView }: { inView: boolean }) {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5, delay: 0.7, ease: EASE }}
-      className="relative mx-auto mt-8 w-full max-w-[880px] overflow-hidden md:rounded-[16px]"
+      className="s10-banner-wrap relative mx-auto mt-8 w-full max-w-[880px] overflow-hidden md:rounded-[16px]"
       style={{
         aspectRatio: "9 / 16",
       }}
