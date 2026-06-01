@@ -1,16 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Check, Hand } from "lucide-react";
-import { PrimaryButton } from "../ui/PrimaryButton";
+import { Hand } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
-
-const benefits = [
-  "Své místo na celou sezonu",
-  "Sleva oproti jednotlivým vstupenkám",
-  "Bonusy v Klubovce a fanshopu",
-  "Výhody u partnerů Viktorie",
-];
+import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 
 export function CardFlipS08() {
   const [flipped, setFlipped] = useState(false);
@@ -18,6 +11,18 @@ export function CardFlipS08() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const cardRef = useRef<HTMLDivElement>(null);
+  const backVideoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = backVideoRef.current;
+    if (!v) return;
+    if (flipped) {
+      v.play().catch(() => {});
+    } else {
+      v.pause();
+      try { v.currentTime = 0; } catch {}
+    }
+  }, [flipped]);
 
   useEffect(() => {
     if (typeof window !== "undefined" && sessionStorage.getItem("s08-flipped-once")) {
@@ -97,27 +102,26 @@ export function CardFlipS08() {
             </div>
             {/* Back */}
             <div
-              className="absolute inset-0 rounded-xl border border-border-blue bg-bg-elevated p-6"
+              className="absolute inset-0 overflow-hidden"
               style={{
                 backfaceVisibility: "hidden",
                 transform: "rotateY(180deg)",
                 boxShadow: "0 0 32px rgba(0,94,167,0.35)",
+                border: "1px solid #005ea7",
+                borderRadius: 24,
               }}
             >
-              <span className="t-label text-text-accent-blue">Tvoje výhody</span>
-              <ul className="mt-3 space-y-2">
-                {benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-2 t-body-small text-text-primary">
-                    <Check size={16} className="mt-0.5 flex-none text-text-accent-red" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-4">
-                <PrimaryButton href="#pricing" onClick={(e) => e.stopPropagation()} style={{ padding: "10px 20px", minHeight: 40, fontSize: 14 }}>
-                  Vybrat variantu
-                </PrimaryButton>
-              </div>
+              <video
+                ref={backVideoRef}
+                className="h-full w-full"
+                style={{ objectFit: "cover", borderRadius: 24 }}
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={cardBackVideo.url} type="video/mp4" />
+              </video>
             </div>
           </div>
         </motion.div>
