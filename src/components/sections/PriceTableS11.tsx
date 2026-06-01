@@ -2,13 +2,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { SecondaryButton } from "../ui/SecondaryButton";
 
-const rows = [
-  { sector: "[SEKTOR_A]", standard: "[CENA_A_STD]", extra: "[CENA_A_EXT]", savings: "[USP_A]", highlight: true },
-  { sector: "[SEKTOR_B]", standard: "[CENA_B_STD]", extra: "[CENA_B_EXT]", savings: "[USP_B]" },
-  { sector: "[SEKTOR_C]", standard: "[CENA_C_STD]", extra: "[CENA_C_EXT]", savings: "[USP_C]" },
-  { sector: "[SEKTOR_D]", standard: "[CENA_D_STD]", extra: "[CENA_D_EXT]", savings: "[USP_D]" },
-];
-
 export function PriceTableS11() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
@@ -22,65 +15,22 @@ export function PriceTableS11() {
           </p>
         </div>
 
-        {/* Desktop table */}
-        <div ref={ref} className="mx-auto mt-12 hidden max-w-table md:block">
-          <div className="grid grid-cols-4 rounded-t-md bg-bg-elevated p-4 t-label text-text-secondary">
-            <div>Sektor</div>
-            <div>Standard</div>
-            <div>Extra</div>
-            <div>Úspora vs. jednotlivé vstupenky</div>
-          </div>
-          {rows.map((r, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.3, delay: i * 0.04 }}
-              className={`grid grid-cols-4 p-4 ${i % 2 === 0 ? "bg-bg-section" : "bg-white/[0.02]"} ${r.highlight ? "border-l-[3px] border-cta-primary" : ""}`}
-            >
-              <div className="t-body text-text-primary">{r.sector}</div>
-              <div className="tabular t-body-large-d font-semibold text-text-primary">{r.standard} Kč</div>
-              <div className="tabular t-body-large-d font-semibold text-text-primary">{r.extra} Kč</div>
-              <div>
-                <span className="inline-block rounded-sm px-2 py-1 t-label" style={{ background: "rgba(224,0,26,0.12)", color: "#ff2a3d" }}>
-                  ŠETŘÍŠ {r.savings}
-                </span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Mobile cards */}
-        <div className="mx-auto mt-12 flex max-w-table flex-col gap-4 md:hidden">
-          {rows.map((r, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.3, delay: i * 0.08 }}
-              className="relative rounded-lg bg-bg-elevated p-5"
-            >
-              <span className="absolute right-3 top-3 rounded-pill bg-cta-primary px-3 py-1 t-label text-white">
-                ŠETŘÍŠ {r.savings}
-              </span>
-              <h3 className="t-h3-m text-text-primary">{r.sector}</h3>
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                <div>
-                  <div className="t-label text-text-tertiary">Standard</div>
-                  <div className="tabular text-text-primary" style={{ fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
-                    {r.standard} Kč
-                  </div>
-                </div>
-                <div>
-                  <div className="t-label text-text-tertiary">Extra</div>
-                  <div className="tabular text-text-primary" style={{ fontSize: 32, fontWeight: 700, lineHeight: 1 }}>
-                    {r.extra} Kč
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mt-12 w-full max-w-[1080px]"
+        >
+          <img
+            src="/s11-pricing-banner.jpg"
+            alt="Ceník permanentek Viktoria Plzeň"
+            className="block h-auto w-full rounded-[16px]"
+          />
+          <p className="mt-4 t-body-small text-text-tertiary text-center">
+            *V případě zájmu o fyzickou plastovou kartu je možné ji dokoupit za poplatek 150 Kč.
+          </p>
+        </motion.div>
 
         <div className="mx-auto mt-10 flex max-w-pricing flex-col gap-3 md:flex-row md:justify-center md:gap-4">
           <SecondaryButton href="https://bit.ly/4j7TSS2">Koupit STANDARD</SecondaryButton>
