@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Cpu, Check, Hand } from "lucide-react";
 import { PrimaryButton } from "../ui/PrimaryButton";
+import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 
 const benefits = [
   "Své místo na celou sezonu",
