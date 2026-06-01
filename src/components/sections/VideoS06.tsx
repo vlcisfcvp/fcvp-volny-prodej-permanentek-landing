@@ -1,22 +1,9 @@
-import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Play } from "lucide-react";
+import atmosphereVideo from "@/assets/atmosphere.mp4.asset.json";
 
 export function VideoS06() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const { ref, inView } = useInView({ threshold: 0.3 });
-
-  useEffect(() => {
-    if (!inView && videoRef.current) videoRef.current.pause();
-  }, [inView]);
-
-  const onPlay = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    if (v.paused) { v.play(); setPlaying(true); } else { v.pause(); setPlaying(false); }
-  };
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   return (
     <section id="s06" aria-label="Video" className="bg-bg-base py-24 md:py-32">
@@ -30,29 +17,22 @@ export function VideoS06() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative mx-auto mt-10 overflow-hidden rounded-lg border border-border-subtle"
-          style={{ aspectRatio: "16/9" }}
+          className="relative mx-auto mt-10 w-full overflow-hidden rounded-lg"
+          style={{
+            aspectRatio: "16/9",
+            maxWidth: "1280px",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+          }}
         >
           <video
-            ref={videoRef}
-            className="absolute inset-0 h-full w-full bg-bg-section"
-            poster="/video-poster.jpg"
-            controls={playing}
-            playsInline
+            className="absolute inset-0 h-full w-full object-cover bg-bg-section"
+            autoPlay
             muted
+            loop
+            playsInline
           >
-            <source src="[VIDEO_URL]" type="video/mp4" />
+            <source src={atmosphereVideo.url} type="video/mp4" />
           </video>
-          {!playing && (
-            <button
-              onClick={onPlay}
-              aria-label="Přehrát video"
-              className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full backdrop-blur-md transition-transform hover:scale-110 md:h-20 md:w-20"
-              style={{ background: "rgba(37,42,82,0.8)", boxShadow: "0 0 32px rgba(0,94,167,0.35)" }}
-            >
-              <Play className="text-text-primary ml-1" size={28} />
-            </button>
-          )}
         </motion.div>
       </div>
     </section>
