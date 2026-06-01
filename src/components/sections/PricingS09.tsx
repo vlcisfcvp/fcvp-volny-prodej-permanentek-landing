@@ -23,7 +23,7 @@ const extraFeatures = [
 export function PricingS09() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
   return (
-    <section id="s09" aria-label="Varianty permanentky" className="bg-bg-section py-24 md:py-32">
+    <section id="s09" aria-label="Varianty permanentky" className="bg-bg-section py-24 md:py-32" style={{ clipPath: "polygon(0 4%, 50% 0%, 100% 4%, 100% 100%, 0 100%)" }}>
       <div id="pricing" className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
           <span className="t-label text-text-accent-red">Vyber si variantu</span>
