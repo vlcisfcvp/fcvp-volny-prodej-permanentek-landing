@@ -25,7 +25,6 @@ function Index() {
       <HeroS01 />
       <IntroS02 />
       <BenefitsS03 />
-      <PartnersS04 />
       <AtmosphereS05 />
       <VideoS06 />
       
@@ -33,7 +32,9 @@ function Index() {
       <PricingS09 />
       <HowToBuyS10 />
       <PriceTableS11 />
+      <PartnersS04 />
       <FaqS12 />
+
       <FinalCtaS13 />
       <FooterS14 />
       <StickyCtaBar />
