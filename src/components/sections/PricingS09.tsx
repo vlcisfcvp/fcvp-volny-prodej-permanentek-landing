@@ -27,7 +27,7 @@ export function PricingS09() {
     <section id="s09" aria-label="Varianty permanentky" className="bg-bg-section py-24 md:py-32" style={{ clipPath: "polygon(0 4%, 50% 0%, 100% 4%, 100% 100%, 0 100%)" }}>
       <div id="pricing" className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
-          <span className="t-label text-text-accent-red">Vyber si variantu</span>
+          <span className="t-body-small font-semibold tracking-widest uppercase text-text-accent-red">Vyber si variantu</span>
           <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">
             STANDARD nebo EXTRA? Vyber si, co ti sedí nejlíp
           </h2>
