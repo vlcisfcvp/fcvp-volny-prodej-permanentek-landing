@@ -31,7 +31,8 @@ export function HeroS01() {
       />
       {/* desktop: background image */}
       <div
-        className="absolute inset-0 hidden md:block bg-[url('/hero-desktop.jpg')] bg-cover bg-center"
+        className="absolute inset-0 hidden md:block bg-[url('/hero-desktop.jpg')] bg-cover bg-no-repeat"
+        style={{ backgroundPosition: "center center" }}
         aria-hidden
       />
 
