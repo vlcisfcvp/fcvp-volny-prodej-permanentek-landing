@@ -22,7 +22,7 @@ export function IntroS02() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="t-label text-text-accent-blue">Proč permanentka</span>
-            <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Permanentkou to začíná.</h2>
+            <h2 className="mt-4 t-display-m md:t-display-d text-text-primary">Permanentkou to začíná.</h2>
             <div className="mt-6 space-y-5">
               {paragraphs.map((p, i) => (
                 <p key={i} className="t-body-large-m md:t-body-large-d text-text-secondary">{p}</p>
