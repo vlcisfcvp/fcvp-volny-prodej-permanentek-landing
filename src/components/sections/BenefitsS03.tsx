@@ -18,7 +18,7 @@ export function BenefitsS03() {
     <section id="s03" aria-label="Výhody" className="bg-bg-section py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
-          <span className="t-body-small font-semibold tracking-widest uppercase text-text-accent-red">Výhody permanentky</span>
+          <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-red">Výhody permanentky</span>
           <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Víc než jen místo na stadionu</h2>
           <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary text-center">Permanentka znamená být u každého domácího zápasu. Mít své místo v Doosan Areně, zažívat atmosféru velkých večerů a stát za Viktorkou po celou sezonu. Kromě jistoty svého místa přináší také řadu výhod, které ocení každý viktorián.</p>
         </div>

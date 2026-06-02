@@ -21,7 +21,7 @@ export function IntroS02() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="t-body-small font-semibold tracking-widest uppercase text-text-accent-blue">Proč permanentka</span>
+            <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-blue">Proč permanentka</span>
             <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Permanentkou to začíná.</h2>
             <div className="mt-6 space-y-5">
               {paragraphs.map((p, i) => (
