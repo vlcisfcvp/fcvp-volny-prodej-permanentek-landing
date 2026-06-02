@@ -26,10 +26,10 @@ function Index() {
       <IntroS02 />
       <BenefitsS03 />
       <VideoS06 />
+      <HowToBuyS10 />
       
       <CardFlipS08 />
       <PricingS09 />
-      <HowToBuyS10 />
       <PriceTableS11 />
       <PartnersS04 />
       <FaqS12 />
