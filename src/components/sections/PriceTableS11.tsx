@@ -9,7 +9,7 @@ export function PriceTableS11() {
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
           <span className="t-label text-text-secondary">Ceník</span>
-          <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Vyber si svou kategorii</h2>
+          <h2 className="mt-4 t-display-m md:t-display-d text-text-primary">Vyber si svou kategorii</h2>
           <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary">
             Transparentní ceny pro každý sektor stadionu.
           </p>

@@ -28,7 +28,7 @@ export function PricingS09() {
       <div id="pricing" className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
           <span className="t-label text-text-accent-red">Vyber si variantu</span>
-          <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">
+          <h2 className="mt-4 t-display-m md:t-display-d text-text-primary">
             STANDARD nebo EXTRA? Vyber si, co ti sedí nejlíp
           </h2>
           <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary">
