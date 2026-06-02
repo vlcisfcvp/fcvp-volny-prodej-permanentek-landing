@@ -55,7 +55,7 @@ export function VideoS06() {
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="text-center">
           <span className="t-label text-text-accent-red">Atmosféra doma</span>
-          <h2 className="mt-4 t-h2-m md:t-h2-d text-text-primary">Doma to žije</h2>
+          <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Doma to žije</h2>
         </div>
         <motion.div
           ref={(node) => {
