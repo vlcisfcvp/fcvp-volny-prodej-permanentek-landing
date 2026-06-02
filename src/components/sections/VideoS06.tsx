@@ -54,7 +54,7 @@ export function VideoS06() {
     <section id="s06" aria-label="Video" className="bg-bg-base py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="text-center">
-          <span className="t-label text-text-accent-red">Atmosféra doma</span>
+          <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-red">Atmosféra doma</span>
           <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Doma to žije</h2>
         </div>
         <motion.div

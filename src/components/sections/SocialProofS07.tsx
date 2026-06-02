@@ -42,7 +42,7 @@ export function SocialProofS07() {
     <section id="s07" aria-label="Fanoušci" className="bg-bg-section-alt py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <div className="mx-auto max-w-reading text-center">
-          <span className="t-body-small font-semibold tracking-widest uppercase text-text-accent-red">Fanoušci Viktorie</span>
+          <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-red">Fanoušci Viktorie</span>
           <h2 className="mt-4 t-h2-m md:t-h2-d text-text-primary">Připoj se k těm, kdo jsou už doma</h2>
         </div>
         <div ref={ref} className="mt-12 grid gap-12 md:grid-cols-3 md:gap-8">
