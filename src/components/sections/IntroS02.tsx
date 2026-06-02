@@ -41,7 +41,7 @@ export function IntroS02() {
               style={{ backgroundImage: "url(/s02-fans.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
               aria-hidden
             />
-            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(14,17,41,0) 0%, rgba(14,17,41,0.4) 50%, rgba(14,17,41,0.95) 100%)" }} aria-hidden />
+            
 
           </motion.div>
         </div>
