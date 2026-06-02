@@ -22,7 +22,7 @@ export function BenefitsS03() {
           <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Víc než jen místo na stadionu</h2>
           <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary text-center">Permanentka znamená být u každého domácího zápasu. Mít své místo v Doosan Areně, zažívat atmosféru velkých večerů a stát za Viktorkou po celou sezonu. Kromě jistoty svého místa přináší také řadu výhod, které ocení každý viktorián.</p>
         </div>
-        <div ref={ref} className="mt-12 grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+        <div ref={ref} className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {items.map((it, i) => {
             const Icon = it.icon;
             return (
