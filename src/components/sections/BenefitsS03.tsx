@@ -31,11 +31,11 @@ export function BenefitsS03() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group rounded-lg border border-border-default bg-bg-elevated p-6 md:p-12 md:min-h-[280px] transition-all duration-300 md:hover:-translate-y-1 md:hover:bg-bg-elevated-hover md:hover:border-border-strong"
+                className="group rounded-lg border border-border-default bg-bg-elevated p-4 md:p-12 md:min-h-[280px] transition-all duration-300 md:hover:-translate-y-1 md:hover:bg-bg-elevated-hover md:hover:border-border-strong"
               >
                 <Icon size={48} strokeWidth={1.5} className="text-text-accent-blue transition-colors md:group-hover:text-[#5fb0e6]" />
                 <h3 className="mt-6 t-h3-m md:t-h3-d text-text-primary">{it.title}</h3>
-                <p className="mt-4 t-body text-text-secondary">{it.desc}</p>
+                <p className="mt-4 t-body text-text-secondary line-clamp-2 md:line-clamp-none">{it.desc}</p>
               </motion.div>
             );
           })}
