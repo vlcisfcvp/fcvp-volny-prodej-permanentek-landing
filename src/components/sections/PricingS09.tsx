@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Check } from "lucide-react";
 import { PrimaryButton } from "../ui/PrimaryButton";
+import { SecondaryButton } from "../ui/SecondaryButton";
 
 const standardFeatures = [
   "Tvoje místo na každém domácím utkání (Chance liga + MOL Cup bez starostí)",
