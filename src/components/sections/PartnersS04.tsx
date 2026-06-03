@@ -121,17 +121,22 @@ export function PartnersS04() {
                   borderTopLeftRadius: 16,
                   borderTopRightRadius: 16,
                   background: "#2d3360",
+                  lineHeight: 0,
+                  fontSize: 0,
+                  margin: 0,
+                  padding: 0,
                 }}
               >
                 <div
                   className="md:h-[220px] h-[180px] w-full"
-                  style={{ position: "absolute", inset: 0 }}
+                  style={{ position: "absolute", inset: 0, lineHeight: 0, fontSize: 0 }}
                 >
                   <img
                     src={p.photo}
                     alt=""
                     className="h-full w-full object-cover object-center transition-transform md:group-hover:scale-[1.04]"
                     style={{
+                      display: "block",
                       transitionDuration: reduceMotion ? "100ms" : "400ms",
                       transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                     }}
