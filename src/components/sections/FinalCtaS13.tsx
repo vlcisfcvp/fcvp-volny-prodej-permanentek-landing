@@ -9,8 +9,8 @@ export function FinalCtaS13() {
     <section
       id="s13"
       aria-label="Poslední krok"
-      className="relative flex items-end justify-center bg-bg-base v-edge-top overflow-hidden"
-      style={{ minHeight: "auto" }}
+      className="relative flex items-center justify-center bg-bg-base v-edge-top overflow-hidden"
+      style={{ paddingTop: "96px", paddingBottom: "96px" }}
     >
       <div
         aria-hidden
