@@ -4,8 +4,10 @@ import { useInView } from "react-intersection-observer";
 import { Hand, VolumeX, Volume2, Maximize2, Minimize2, Play, Pause } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 import cardBackVideo from "@/assets/card-back.mp4.asset.json";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function CardFlipS08() {
+  const isMobile = useIsMobile();
   const [flipped, setFlipped] = useState(false);
   const [hasFlipped, setHasFlipped] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
@@ -117,6 +119,7 @@ export function CardFlipS08() {
 
   const toggleLightbox = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (isMobile) return;
     if (lightboxOpen) {
       closeLightbox();
     } else {
@@ -232,14 +235,26 @@ export function CardFlipS08() {
                 </button>
                 <button
                   type="button"
-                  onClick={toggleLightbox}
-                  aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
+                  onClick={togglePlay}
+                  aria-label={playing ? "Pozastavit" : "Přehrát"}
                   style={controlStyle}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
                 >
-                  {lightboxOpen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                  {playing ? <Pause size={16} /> : <Play size={16} />}
                 </button>
+                {!isMobile && (
+                  <button
+                    type="button"
+                    onClick={toggleLightbox}
+                    aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
+                    style={controlStyle}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+                  >
+                    {lightboxOpen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                  </button>
+                )}
               </div>
             </div>
           </div>
