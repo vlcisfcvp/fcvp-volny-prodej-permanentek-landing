@@ -286,41 +286,16 @@ export function HowToBuyS10() {
           className="mx-auto text-center"
           style={{ maxWidth: 720, marginBottom: 64 }}
         >
-          <span
-            style={{
-              fontSize: 12,
-              fontWeight: 600,
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-              color: "#ff2a3d",
-            }}
-          >
+          <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-red">
             Jak na to
           </span>
-          <h2
-            style={{
-              marginTop: 16,
-              fontSize: "clamp(32px, 5vw, 48px)",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "-0.01em",
-              color: "#ffffff",
-              lineHeight: 1.1,
-            }}
-          >
+          <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">
             Jak, kdy a kde koupit permanentku?
           </h2>
-          <p
-            style={{
-              marginTop: 16,
-              fontSize: 20,
-              lineHeight: 1.6,
-              fontWeight: 400,
-              color: "rgba(255,255,255,0.75)",
-            }}
-          >
+          <p className="mt-4 t-body-large-m md:t-body-large-d text-text-secondary">
             Digitálně, jednoduše a přes Viktoria Key
           </p>
+
         </motion.header>
 
         <ViktoriaKeyInfo inView={inView} />
