@@ -1,54 +1,87 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { ImageIcon } from "lucide-react";
 
-const partners: { name: string; url: string; benefit: string }[] = [
+const partners: { name: string; url: string; benefit: string; photo: string }[] = [
   {
     name: "Restaurace Klubovka",
     url: "https://fcvpklubovka.cz/",
     benefit:
       "Voucher na jednorázovou slevu 200 Kč při útratě nad 600 Kč, dále stálá 10% sleva.",
+    photo: "/s04-partner-1.jpg",
   },
   {
     name: "Viktoria Shop",
     url: "https://eshop.fcviktoria.cz/",
     benefit:
       "Voucher na jednorázovou slevu 300 Kč při útratě nad 1000 Kč, dále stálá 10% sleva.",
+    photo: "/s04-partner-2.jpg",
   },
   {
     name: "Keramika Soukup",
     url: "https://www.keramikasoukup.cz/",
     benefit:
       "Sleva 15 % na veškerý nezlevněný sortiment. Uplatnění v prodejně po předložení permanentky.",
+    photo: "/s04-partner-3.jpg",
   },
   {
     name: "Porsche Plzeň",
     url: "https://borska-pole.porsche-plzen.cz/",
     benefit:
       "Sleva 15 % na servisní práce a 5 % na materiál po předložení permanentky.",
+    photo: "/s04-partner-4.jpg",
   },
   {
     name: "Merlot d'Or",
     url: "https://www.merlot.cz/",
     benefit: "Sleva 10 % po předložení permanentky.",
+    photo: "/s04-partner-5.jpg",
   },
   {
     name: "Statek Česká Lípa",
     url: "https://www.statek-ceskalipa.cz/",
     benefit: "Sleva 10 % z ceny ubytování a konzumace v restauraci.",
+    photo: "/s04-partner-6.jpg",
   },
 ];
 
+const EASE = [0.16, 1, 0.3, 1] as const;
+
 export function PartnersS04() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const reduceMotion = useReducedMotion();
+
   return (
-    <section id="s04" aria-label="Partneři" className="bg-bg-section-alt py-24 md:py-32">
-      <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
-        <div className="mx-auto max-w-reading text-center">
-          <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-blue">
+    <section
+      id="s04"
+      aria-label="Partneři"
+      className="py-24 md:py-32"
+      style={{ background: "#15182f" }}
+    >
+      <div className="mx-auto max-w-content px-6 md:px-12">
+        <div className="text-center">
+          <span
+            className="uppercase"
+            style={{
+              fontFamily: "Rajdhani, sans-serif",
+              fontWeight: 600,
+              fontSize: 12,
+              letterSpacing: "0.12em",
+              color: "#3a8fd6",
+            }}
+          >
             Partneři klubu
           </span>
-          <h2 className="mt-4 t-h1-m md:t-h1-d uppercase text-text-primary">
-            Výhody pro permanentkáře
+          <h2
+            className="mt-4 uppercase"
+            style={{
+              fontFamily: "Rajdhani, sans-serif",
+              fontWeight: 700,
+              color: "#ffffff",
+              lineHeight: 1.05,
+            }}
+          >
+            <span className="block text-[32px] md:text-[48px]">Výhody pro permanentkáře</span>
           </h2>
         </div>
 
@@ -62,27 +95,109 @@ export function PartnersS04() {
               href={p.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              className="group flex cursor-pointer flex-col items-center rounded-lg border border-border-subtle bg-bg-elevated p-5 md:p-8 transition-all duration-[280ms] [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] md:hover:bg-bg-elevated-hover md:hover:border-[rgba(0,94,167,0.6)] md:hover:shadow-[0_0_20px_rgba(0,94,167,0.2)]"
-              style={{ borderRadius: 16 }}
+              initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
+              animate={inView || reduceMotion ? { opacity: 1, scale: 1 } : {}}
+              transition={{
+                duration: reduceMotion ? 0 : 0.4,
+                delay: reduceMotion ? 0 : i * 0.06,
+                ease: EASE,
+              }}
+              className="group relative block cursor-pointer overflow-hidden"
+              style={{
+                background: "#252a52",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: 16,
+                transitionProperty: "background, border-color, box-shadow, transform",
+                transitionDuration: reduceMotion ? "100ms" : "280ms",
+                transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget;
+                el.style.background = "#2d3360";
+                el.style.borderColor = "#005ea7";
+                el.style.boxShadow =
+                  "0 0 0 1px #005ea7, 0 8px 32px rgba(0,94,167,0.2)";
+                el.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget;
+                el.style.background = "#252a52";
+                el.style.borderColor = "rgba(255,255,255,0.08)";
+                el.style.boxShadow = "none";
+                el.style.transform = "translateY(0)";
+              }}
             >
-              <div className="flex h-14 w-full items-center justify-center">
+              {/* Layer 1 — Photo */}
+              <div
+                className="relative w-full overflow-hidden"
+                style={{
+                  height: "var(--photo-h, 160px)",
+                  borderTopLeftRadius: 16,
+                  borderTopRightRadius: 16,
+                  background: "#2d3360",
+                }}
+              >
+                <div
+                  className="md:h-[160px] h-[120px] w-full"
+                  style={{ position: "absolute", inset: 0 }}
+                >
+                  <img
+                    src={p.photo}
+                    alt=""
+                    className="h-full w-full object-cover object-center transition-transform md:group-hover:scale-[1.04]"
+                    style={{
+                      transitionDuration: reduceMotion ? "100ms" : "400ms",
+                      transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                    }}
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <div
+                    className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(14,17,41,0) 40%, rgba(14,17,41,0.35) 100%)",
+                    }}
+                  >
+                    <ImageIcon
+                      size={24}
+                      style={{ color: "rgba(255,255,255,0.2)" }}
+                      className="opacity-0 [.group:has(img[style*='display:none'])_&]:opacity-100"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Layer 2 — Logo */}
+              <div className="flex items-center justify-center pt-4 pb-4 md:pt-6">
                 <span
-                  className="uppercase transition-colors md:group-hover:text-white"
+                  className="uppercase transition-opacity md:group-hover:opacity-100"
                   style={{
                     fontFamily: "Rajdhani, sans-serif",
                     fontWeight: 600,
                     fontSize: 13,
                     letterSpacing: "0.08em",
                     color: "rgba(255,255,255,0.85)",
+                    opacity: 0.85,
                   }}
                 >
                   {p.name}
                 </span>
               </div>
-              <div className="mx-auto my-3 h-px w-8 bg-border-default" />
+
+              {/* Layer 3 — Separator */}
+              <div
+                className="mx-auto"
+                style={{
+                  width: 32,
+                  height: 1,
+                  background: "rgba(255,255,255,0.14)",
+                  margin: "0 auto",
+                }}
+              />
+
+              {/* Layer 4 — Benefit text */}
               <p
                 className="text-center"
                 style={{
@@ -92,9 +207,13 @@ export function PartnersS04() {
                   lineHeight: 1.57,
                   color: "rgba(255,255,255,0.75)",
                   display: "-webkit-box",
-                  WebkitLineClamp: 3,
+                  WebkitLineClamp: 2,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden",
+                  marginTop: 16,
+                  marginLeft: 16,
+                  marginRight: 16,
+                  marginBottom: 24,
                 }}
               >
                 {p.benefit}
@@ -104,7 +223,31 @@ export function PartnersS04() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <a href="#" className="cta-secondary">
+          <a
+            href="#"
+            className="uppercase"
+            style={{
+              background: "transparent",
+              border: "1.5px solid rgba(255,255,255,0.24)",
+              color: "#ffffff",
+              borderRadius: 8,
+              padding: "16px 32px",
+              fontFamily: "Rajdhani, sans-serif",
+              fontWeight: 700,
+              fontSize: 16,
+              letterSpacing: "0.08em",
+              transition: "all 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+              display: "inline-block",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#005ea7";
+              e.currentTarget.style.background = "rgba(0,94,167,0.08)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.24)";
+              e.currentTarget.style.background = "transparent";
+            }}
+          >
             Všechny slevy a benefity
           </a>
         </div>
