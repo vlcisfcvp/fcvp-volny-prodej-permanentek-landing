@@ -151,7 +151,7 @@ export function CardFlipS08() {
   };
 
   return (
-    <section id="s08" aria-label="Karta permanentky" className="relative bg-bg-section py-24 md:py-32 v-edge-top">
+    <section id="s08" aria-label="Karta permanentky" className="relative bg-bg-section-alt py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <p className="text-center t-body-large-m md:t-body-large-d text-text-secondary">
           Otoč permanentku kliknutím na kartu a podívej se, jak to vypadalo loni.
