@@ -24,7 +24,7 @@ export function CardFlipS08() {
     const v = backVideoRef.current;
     if (!v) return;
     const unregister = registerVideo(v);
-    return unregister;
+    return () => { unregister(); };
   }, []);
 
   useEffect(() => {
