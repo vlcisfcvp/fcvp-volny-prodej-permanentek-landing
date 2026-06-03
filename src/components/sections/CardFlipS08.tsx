@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Hand } from "lucide-react";
+import { Hand, VolumeX, Volume2, Maximize2, X } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 
@@ -9,9 +9,12 @@ export function CardFlipS08() {
   const [flipped, setFlipped] = useState(false);
   const [hasFlipped, setHasFlipped] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [muted, setMuted] = useState(true);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const cardRef = useRef<HTMLDivElement>(null);
   const backVideoRef = useRef<HTMLVideoElement>(null);
+  const lightboxVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const v = backVideoRef.current;
@@ -30,6 +33,23 @@ export function CardFlipS08() {
     }
   }, []);
 
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxOpen]);
+
+  useEffect(() => {
+    const lv = lightboxVideoRef.current;
+    if (lightboxOpen && lv) {
+      lv.muted = muted;
+      lv.play().catch(() => {});
+    }
+  }, [lightboxOpen, muted]);
+
   const onFlip = () => {
     setFlipped((f) => !f);
     if (!hasFlipped) {
@@ -47,6 +67,36 @@ export function CardFlipS08() {
     setTilt({ x: -py * 6, y: px * 6 });
   };
   const onLeave = () => setTilt({ x: 0, y: 0 });
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const v = backVideoRef.current;
+    if (!v) return;
+    const next = !v.muted;
+    v.muted = next;
+    setMuted(next);
+  };
+
+  const openLightbox = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLightboxOpen(true);
+  };
+
+  const controlStyle: React.CSSProperties = {
+    width: 32,
+    height: 32,
+    background: "rgba(14,17,41,0.6)",
+    backdropFilter: "blur(8px)",
+    WebkitBackdropFilter: "blur(8px)",
+    borderRadius: "50%",
+    color: "rgba(255,255,255,0.75)",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    border: "none",
+    transition: "opacity 220ms ease, color 220ms ease",
+  };
 
   return (
     <section id="s08" aria-label="Karta permanentky" className="relative bg-bg-section py-24 md:py-32 v-edge-top">
@@ -122,6 +172,32 @@ export function CardFlipS08() {
               >
                 <source src={cardBackVideo.url} type="video/mp4" />
               </video>
+              <div
+                className="absolute flex items-center"
+                style={{ bottom: 12, right: 12, gap: 8, zIndex: 2 }}
+              >
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  aria-label={muted ? "Zapnout zvuk" : "Vypnout zvuk"}
+                  aria-pressed={!muted}
+                  style={controlStyle}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+                >
+                  {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+                </button>
+                <button
+                  type="button"
+                  onClick={openLightbox}
+                  aria-label="Zobrazit na celou obrazovku"
+                  style={controlStyle}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+                >
+                  <Maximize2 size={16} />
+                </button>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -140,6 +216,59 @@ export function CardFlipS08() {
           </motion.div>
         )}
       </div>
+
+      {lightboxOpen && (
+        <div
+          onClick={() => setLightboxOpen(false)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            background: "rgba(14,17,41,0.92)",
+            zIndex: 100,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            type="button"
+            onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+            aria-label="Zavřít"
+            style={{
+              position: "absolute",
+              top: 16,
+              right: 16,
+              width: 40,
+              height: 40,
+              background: "rgba(255,255,255,0.1)",
+              borderRadius: "50%",
+              color: "#ffffff",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              border: "none",
+            }}
+          >
+            <X size={20} />
+          </button>
+          <video
+            ref={lightboxVideoRef}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: "90vw",
+              maxHeight: "85vh",
+              borderRadius: 12,
+              objectFit: "contain",
+            }}
+            autoPlay
+            loop
+            playsInline
+          >
+            <source src={cardBackVideo.url} type="video/mp4" />
+          </video>
+        </div>
+      )}
     </section>
   );
 }
