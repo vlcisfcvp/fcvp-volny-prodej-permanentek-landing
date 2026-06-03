@@ -221,6 +221,7 @@ export function CardFlipS08() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
               >
                 <source src={cardBackVideo.url} type="video/mp4" />
               </video>
