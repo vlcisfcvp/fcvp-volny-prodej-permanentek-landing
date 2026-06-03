@@ -78,7 +78,7 @@ export function PricingS09() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.12 }}
-            className="order-2 flex flex-col rounded-xl border border-border-default bg-bg-elevated p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1 md:hover:border-border-strong"
+            className="order-2 md:order-1 flex flex-col rounded-xl border border-border-default bg-bg-elevated p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1 md:hover:border-border-strong"
           >
             <span className="t-label text-text-secondary">Standard</span>
             <p className="mt-3 t-body text-text-secondary">
