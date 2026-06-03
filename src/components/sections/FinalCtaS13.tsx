@@ -57,7 +57,7 @@ export function FinalCtaS13() {
 
         </motion.div>
         <p className="mt-6 t-body-small text-text-tertiary">
-          &zwnj;
+          &#8203;
         </p>
       </div>
     </section>
