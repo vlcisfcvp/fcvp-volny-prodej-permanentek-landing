@@ -30,7 +30,7 @@ export function FaqS12() {
   return (
     <section id="s12" aria-label="Časté dotazy" className="bg-bg-section-alt py-24 md:py-32">
       <div className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
-        <div className="text-left">
+        <div className="text-center">
           <span className="text-[13px] font-semibold tracking-widest uppercase text-text-accent-blue">Časté dotazy</span>
           <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">Otázky a odpovědi</h2>
         </div>
