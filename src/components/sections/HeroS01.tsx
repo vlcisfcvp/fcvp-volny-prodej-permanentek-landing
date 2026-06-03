@@ -45,7 +45,7 @@ export function HeroS01() {
       >
         <motion.div
           variants={item}
-          className="absolute left-6 bottom-12 md:left-12 md:bottom-auto md:top-[85%] lg:left-16"
+          className="absolute bottom-12 right-6 left-auto md:right-12"
         >
           <PrimaryButton href="#pricing" className="whitespace-nowrap">Koupit permanentku</PrimaryButton>
         </motion.div>
