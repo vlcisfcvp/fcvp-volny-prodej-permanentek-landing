@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const paragraphs = [
-  "Vyhrávat se nedá bez boje. Na hřišti ani v hledišti.",
+  "Jste ready? Vyhrávat se nedá bez boje. Na hřišti ani v hledišti.",
   "Každý domácí zápas je další bitva, do které jdeme naplno. A stejné je to i na tribunách. Permanentka není jen vstupenka na sezonu. Je to závazek. Být na svém místě. Podporovat Viktorii v každém zápase. Stát za svým týmem, když se vyhrává i když je potřeba bojovat až do poslední minuty.",
   "Právě domácí stadion je místem, kde se vítězství rodí společně. V atmosféře, která žene hráče dopředu. V emocích, které spojují celý stadion. V každém potlesku, chorálu i momentu, kdy tým potřebuje cítit, že za ním stojí celé město.",
   "Sezona 2026/2027 přinese nové výzvy, velké zápasy i další boje o úspěch. A každý domácí zápas bude znovu o nás všech.",
