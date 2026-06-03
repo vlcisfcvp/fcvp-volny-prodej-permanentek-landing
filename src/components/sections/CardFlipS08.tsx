@@ -7,6 +7,7 @@ import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 export function CardFlipS08() {
+  const isMobile = useIsMobile();
   const [flipped, setFlipped] = useState(false);
   const [hasFlipped, setHasFlipped] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
