@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { SecondaryButton } from "../ui/SecondaryButton";
+import { PrimaryButton } from "../ui/PrimaryButton";
 
 export function PriceTableS11() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
@@ -27,14 +28,11 @@ export function PriceTableS11() {
             alt="Ceník permanentek Viktoria Plzeň"
             className="block h-auto w-full rounded-[16px]"
           />
-          <p className="mt-4 t-body-small text-text-tertiary text-center">
-            *V případě zájmu o fyzickou plastovou kartu je možné ji dokoupit za poplatek 150 Kč.
-          </p>
         </motion.div>
 
         <div className="mx-auto mt-10 flex max-w-pricing flex-col gap-3 md:flex-row md:justify-center md:gap-4">
           <SecondaryButton href="https://bit.ly/4j7TSS2">Koupit STANDARD</SecondaryButton>
-          <SecondaryButton href="https://bit.ly/4jWo0ke">Koupit EXTRA</SecondaryButton>
+          <PrimaryButton href="https://bit.ly/4jWo0ke">Koupit EXTRA</PrimaryButton>
         </div>
       </div>
       <div id="sticky-exit-marker" />
