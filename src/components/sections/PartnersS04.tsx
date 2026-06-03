@@ -55,8 +55,8 @@ export function PartnersS04() {
     <section
       id="s04"
       aria-label="Partneři"
-      className="py-24 md:py-32"
-      style={{ background: "#15182f" }}
+      className="py-24 md:py-32 v-edge-top"
+      style={{ background: "#0e1129" }}
     >
       <div className="mx-auto max-w-content px-6 md:px-12">
         <div className="text-center">
