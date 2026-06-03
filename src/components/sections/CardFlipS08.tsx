@@ -243,17 +243,18 @@ export function CardFlipS08() {
                 >
                   {playing ? <Pause size={16} /> : <Play size={16} />}
                 </button>
-                <button
-                  type="button"
-                  onClick={toggleLightbox}
-                  aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
-                  className="hidden md:inline-flex"
-                  style={controlStyle}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
-                >
-                  {lightboxOpen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
-                </button>
+                {!isMobile && (
+                  <button
+                    type="button"
+                    onClick={toggleLightbox}
+                    aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
+                    style={controlStyle}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+                  >
+                    {lightboxOpen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+                  </button>
+                )}
               </div>
             </div>
           </div>
