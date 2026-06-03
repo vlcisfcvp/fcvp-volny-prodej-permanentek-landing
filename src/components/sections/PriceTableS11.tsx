@@ -26,6 +26,8 @@ export function PriceTableS11() {
           <img
             src="/s11-pricing-banner.jpg"
             alt="Ceník permanentek Viktoria Plzeň"
+            loading="lazy"
+            decoding="async"
             className="block h-auto w-full rounded-[16px]"
           />
         </motion.div>

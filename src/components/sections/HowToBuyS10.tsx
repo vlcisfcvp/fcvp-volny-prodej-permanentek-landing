@@ -230,12 +230,16 @@ function Banner({ inView }: { inView: boolean }) {
       <img
         src="/s10-banner-desktop.jpg"
         alt="Viktoria Key"
+        loading="lazy"
+        decoding="async"
         className="hidden md:block w-full h-full"
         style={{ objectFit: "cover", objectPosition: "center top" }}
       />
       <img
         src="/s10-banner-mobile.jpg"
         alt="Viktoria Key"
+        loading="lazy"
+        decoding="async"
         className="block md:hidden w-full h-full"
         style={{ objectFit: "cover", objectPosition: "center top" }}
       />

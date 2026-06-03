@@ -38,9 +38,13 @@ export function IntroS02() {
             className="relative overflow-hidden"
             style={{ aspectRatio: "4/5", borderRadius: "16px", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            <div
-              className="absolute inset-0"
-              style={{ backgroundImage: "url(/s02-fans.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}
+            <img
+              src="/s02-fans.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full"
+              style={{ objectFit: "cover", objectPosition: "center" }}
               aria-hidden
             />
             

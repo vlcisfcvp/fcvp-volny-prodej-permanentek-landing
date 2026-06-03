@@ -197,6 +197,8 @@ export function CardFlipS08() {
               <img
                 src={cardFrontImage.url}
                 alt="Permanentka Extra 2026/2027"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 h-full w-full"
                 style={{ objectFit: "cover", objectPosition: "center" }}
               />

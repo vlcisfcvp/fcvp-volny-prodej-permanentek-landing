@@ -2,7 +2,7 @@ export function FilmGrain() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 z-[100]"
+      className="film-grain pointer-events-none fixed inset-0 z-[100]"
       style={{
         opacity: 0.04,
         mixBlendMode: "overlay",
