@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { Hand, VolumeX, Volume2, Maximize2, Minimize2, Play, Pause } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 import cardBackVideo from "@/assets/card-back.mp4.asset.json";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function CardFlipS08() {
   const [flipped, setFlipped] = useState(false);
