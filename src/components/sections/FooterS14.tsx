@@ -12,28 +12,53 @@ export function FooterS14() {
           <div>
             <h4 className="t-label text-text-accent-blue">Klub</h4>
             <ul className="mt-4 space-y-2 t-body text-text-secondary">
-              {["O klubu", "Hráči", "Aktuality", "Stadion"].map((l) => (
-                <li key={l}><a href="#" className="transition-colors hover:text-text-primary">{l}</a></li>
+              {[
+                { label: "O klubu", href: "https://www.fcviktoria.cz/" },
+                { label: "Hráči", href: "https://www.fcviktoria.cz/" },
+                { label: "Aktuality", href: "https://www.fcviktoria.cz/" },
+                { label: "Stadion", href: "https://www.fcviktoria.cz/zobraz.asp?t=stadion-plan-stadionu" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} target="_blank" rel="noopener" className="transition-colors hover:text-text-primary">
+                    {item.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
           <div>
             <h4 className="t-label text-text-accent-blue">Servis</h4>
             <ul className="mt-4 space-y-2 t-body text-text-secondary">
-              {["Kontakt", "Klubovka", "Fanshop", "Viktoria Key"].map((l) => (
-                <li key={l}><a href="#" className="transition-colors hover:text-text-primary">{l}</a></li>
+              {[
+                { label: "Kontakt", href: "https://www.fcviktoria.cz/" },
+                { label: "Klubovka", href: "https://fcvpklubovka.cz/" },
+                { label: "Fanshop", href: "https://eshop.fcviktoria.cz/" },
+                { label: "Viktoria Key", href: "https://fcviktoria.unidy.app/logins" }
+              ].map((item) => (
+                <li key={item.label}>
+                  <a href={item.href} target="_blank" rel="noopener" className="transition-colors hover:text-text-primary">
+                    {item.label}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
           <div>
             <h4 className="t-label text-text-accent-blue">Sledujte nás</h4>
             <div className="mt-4 flex gap-3 text-text-secondary">
-              {[Facebook, Instagram, Youtube, Twitter].map((Icon, i) => (
-                <a key={i} href="#" className="transition-colors hover:text-text-accent-red"><Icon size={24} /></a>
+              {[
+                { Icon: Facebook, href: "https://www.facebook.com/fcviktoria.cz" },
+                { Icon: Instagram, href: "https://www.instagram.com/fcviktoria_official" },
+                { Icon: Youtube, href: "https://www.youtube.com/user/viktoriaplzentv" },
+                { Icon: Twitter, href: "https://x.com/fcviktorkaplzen" }
+              ].map((social, i) => (
+                <a key={i} href={social.href} target="_blank" rel="noopener" className="transition-colors hover:text-text-accent-red">
+                  <social.Icon size={24} />
+                </a>
               ))}
             </div>
-            <a href="mailto:permanentky@fcviktoria.cz" className="mt-4 block t-body-small text-text-secondary hover:text-text-primary">
-              permanentky@fcviktoria.cz
+            <a href="" className="mt-4 block t-body-small text-text-secondary hover:text-text-primary">
+              ​
             </a>
           </div>
         </div>
