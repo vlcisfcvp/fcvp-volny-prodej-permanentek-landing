@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Hand, VolumeX, Volume2, Maximize2, X } from "lucide-react";
+import { Hand, VolumeX, Volume2, Maximize2, Minimize2, X, Play, Pause } from "lucide-react";
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 
@@ -11,6 +11,7 @@ export function CardFlipS08() {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [muted, setMuted] = useState(true);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [playing, setPlaying] = useState(true);
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
   const cardRef = useRef<HTMLDivElement>(null);
   const backVideoRef = useRef<HTMLVideoElement>(null);
@@ -33,22 +34,43 @@ export function CardFlipS08() {
     }
   }, []);
 
+  const closeLightbox = () => {
+    const back = backVideoRef.current;
+    const lv = lightboxVideoRef.current;
+    if (back && lv) {
+      try { back.currentTime = lv.currentTime; } catch {}
+      back.muted = lv.muted;
+    }
+    if (back) back.pause();
+    setPlaying(false);
+    setLightboxOpen(false);
+  };
+
   useEffect(() => {
     if (!lightboxOpen) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxOpen(false);
+      if (e.key === "Escape") closeLightbox();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen]);
 
+  // Sync state into lightbox video when it opens
   useEffect(() => {
     const lv = lightboxVideoRef.current;
+    const back = backVideoRef.current;
     if (lightboxOpen && lv) {
+      if (back) {
+        try { lv.currentTime = back.currentTime; } catch {}
+      }
       lv.muted = muted;
-      lv.play().catch(() => {});
+      if (playing) {
+        lv.play().catch(() => {});
+      } else {
+        lv.pause();
+      }
     }
-  }, [lightboxOpen, muted]);
+  }, [lightboxOpen]);
 
   const onFlip = () => {
     setFlipped((f) => !f);
@@ -70,16 +92,37 @@ export function CardFlipS08() {
 
   const toggleMute = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const v = backVideoRef.current;
-    if (!v) return;
-    const next = !v.muted;
-    v.muted = next;
+    const next = !muted;
+    const back = backVideoRef.current;
+    const lv = lightboxVideoRef.current;
+    if (back) back.muted = next;
+    if (lv) lv.muted = next;
     setMuted(next);
   };
 
-  const openLightbox = (e: React.MouseEvent) => {
+  const togglePlay = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setLightboxOpen(true);
+    const lv = lightboxVideoRef.current;
+    const back = backVideoRef.current;
+    const next = !playing;
+    if (next) {
+      lv?.play().catch(() => {});
+      back?.play().catch(() => {});
+    } else {
+      lv?.pause();
+      back?.pause();
+    }
+    setPlaying(next);
+  };
+
+  const toggleLightbox = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxOpen) {
+      closeLightbox();
+    } else {
+      setPlaying(true);
+      setLightboxOpen(true);
+    }
   };
 
   const controlStyle: React.CSSProperties = {
@@ -189,13 +232,13 @@ export function CardFlipS08() {
                 </button>
                 <button
                   type="button"
-                  onClick={openLightbox}
-                  aria-label="Zobrazit na celou obrazovku"
+                  onClick={toggleLightbox}
+                  aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
                   style={controlStyle}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
                 >
-                  <Maximize2 size={16} />
+                  {lightboxOpen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
                 </button>
               </div>
             </div>
@@ -219,7 +262,7 @@ export function CardFlipS08() {
 
       {lightboxOpen && (
         <div
-          onClick={() => setLightboxOpen(false)}
+          onClick={closeLightbox}
           style={{
             position: "fixed",
             inset: 0,
@@ -232,7 +275,7 @@ export function CardFlipS08() {
         >
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
             aria-label="Zavřít"
             style={{
               position: "absolute",
@@ -252,21 +295,35 @@ export function CardFlipS08() {
           >
             <X size={20} />
           </button>
-          <video
-            ref={lightboxVideoRef}
+          <div
             onClick={(e) => e.stopPropagation()}
-            style={{
-              maxWidth: "90vw",
-              maxHeight: "85vh",
-              borderRadius: 12,
-              objectFit: "contain",
-            }}
-            autoPlay
-            loop
-            playsInline
+            style={{ position: "relative", display: "inline-block" }}
           >
-            <source src={cardBackVideo.url} type="video/mp4" />
-          </video>
+            <video
+              ref={lightboxVideoRef}
+              style={{
+                maxWidth: "90vw",
+                maxHeight: "85vh",
+                borderRadius: 12,
+                objectFit: "contain",
+                display: "block",
+              }}
+              loop
+              playsInline
+            >
+              <source src={cardBackVideo.url} type="video/mp4" />
+            </video>
+            <button
+              type="button"
+              onClick={togglePlay}
+              aria-label={playing ? "Pozastavit" : "Přehrát"}
+              style={{ ...controlStyle, position: "absolute", bottom: 12, right: 12, zIndex: 2 }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+            >
+              {playing ? <Pause size={16} /> : <Play size={16} />}
+            </button>
+          </div>
         </div>
       )}
     </section>
