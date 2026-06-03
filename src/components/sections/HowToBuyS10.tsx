@@ -276,7 +276,7 @@ export function HowToBuyS10() {
       id="s10"
       aria-label="Jak na to"
       style={{ background: "#1c2143" }}
-      className="py-24 md:py-32"
+      className="py-24 md:py-32 v-edge-top"
     >
       <div ref={ref} className="mx-auto max-w-content px-6 md:px-8 lg:px-12">
         <motion.header
