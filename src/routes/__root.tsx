@@ -52,6 +52,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
     ],
     links: [
+      { rel: "preload", as: "image", href: "/hero-desktop.jpg", media: "(min-width: 768px)" },
+      { rel: "preload", as: "image", href: "/hero-mobile.jpg", media: "(max-width: 767px)" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

@@ -130,6 +130,8 @@ export function PartnersS04() {
                 <img
                   src={p.photo}
                   alt=""
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover object-center transition-transform md:group-hover:scale-[1.04]"
                   style={{
                     display: "block",

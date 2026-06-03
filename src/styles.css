@@ -200,3 +200,19 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+.film-grain {
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .film-grain {
+    display: none;
+  }
+}
+
+@supports not (backdrop-filter: blur(16px)) {
+  .sticky-cta-bar {
+    background: rgba(28, 33, 67, 0.98) !important;
+  }
+}

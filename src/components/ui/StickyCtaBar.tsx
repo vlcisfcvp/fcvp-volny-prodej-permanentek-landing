@@ -41,7 +41,7 @@ export function StickyCtaBar() {
         </div>
       )}
       <div
-        className="flex items-center gap-3 border-t border-border-default px-4 py-3"
+        className="sticky-cta-bar flex items-center gap-3 border-t border-border-default px-4 py-3"
         style={{ background: "rgba(28,33,67,0.92)", backdropFilter: "blur(16px)", boxShadow: "0 -8px 32px rgba(0,0,0,0.4)" }}
       >
         <button onClick={() => setToggleOpen((o) => !o)} className="flex-1 text-left">
