@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Play, Volume2, VolumeX } from "lucide-react";
 import atmosphereVideo from "@/assets/atmosphere.mp4.asset.json";
+import { registerVideo, pauseAllExcept } from "@/hooks/useVideoManager";
 
 export function VideoS06() {
   const { ref: animRef, inView: animInView } = useInView({ threshold: 0.3, triggerOnce: true });
@@ -21,27 +22,32 @@ export function VideoS06() {
 
   useEffect(() => {
     const video = videoRef.current;
-    const container = containerRef.current;
-    if (!video || !container) return;
+    if (!video) return;
+
+    const unregister = registerVideo(video);
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const p = video.play();
-            if (p !== undefined) {
-              p.then(() => setShowFallback(false)).catch(() => setShowFallback(true));
-            }
-          } else {
-            video.pause();
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.preload = "auto";
+          pauseAllExcept(video);
+          const p = video.play();
+          if (p !== undefined) {
+            p.then(() => setShowFallback(false)).catch(() => setShowFallback(true));
           }
-        });
+        } else {
+          video.pause();
+        }
       },
-      { threshold: 0.3 },
+      { threshold: 0.1, rootMargin: "200px 0px" },
     );
 
-    observer.observe(container);
-    return () => observer.disconnect();
+    observer.observe(video);
+
+    return () => {
+      observer.disconnect();
+      unregister();
+    };
   }, []);
 
   const handlePlayClick = () => {
@@ -78,6 +84,7 @@ export function VideoS06() {
             muted
             loop
             playsInline
+            preload="none"
           >
             <source src={atmosphereVideo.url} type="video/mp4" />
           </video>
