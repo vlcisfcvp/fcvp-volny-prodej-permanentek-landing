@@ -16,7 +16,7 @@ export function StickyCtaBar() {
   }, [entryRef, exitRef]);
 
   const visible = entered && !exited;
-  const price = variant === "EXTRA" ? "[EXTRA_PRICE]" : "[STANDARD_PRICE]";
+  const price = variant === "EXTRA" ? "3 250" : "[STANDARD_PRICE]";
   const href = variant === "EXTRA" ? "https://bit.ly/4jWo0ke" : "https://bit.ly/4j7TSS2";
 
   return (
