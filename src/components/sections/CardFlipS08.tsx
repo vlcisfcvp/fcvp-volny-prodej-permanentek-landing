@@ -273,31 +273,9 @@ export function CardFlipS08() {
             justifyContent: "center",
           }}
         >
-          <button
-            type="button"
-            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
-            aria-label="Zavřít"
-            style={{
-              position: "absolute",
-              top: 16,
-              right: 16,
-              width: 40,
-              height: 40,
-              background: "rgba(255,255,255,0.1)",
-              borderRadius: "50%",
-              color: "#ffffff",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              border: "none",
-            }}
-          >
-            <X size={20} />
-          </button>
           <div
             onClick={(e) => e.stopPropagation()}
-            style={{ position: "relative", display: "inline-block" }}
+            style={{ position: "relative", display: "inline-block", overflow: "visible" }}
           >
             <video
               ref={lightboxVideoRef}
@@ -317,11 +295,41 @@ export function CardFlipS08() {
               type="button"
               onClick={togglePlay}
               aria-label={playing ? "Pozastavit" : "Přehrát"}
+              style={{
+                ...controlStyle,
+                width: 48,
+                height: 48,
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                zIndex: 2,
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+            >
+              {playing ? <Pause size={24} /> : <Play size={24} />}
+            </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              aria-label={muted ? "Zapnout zvuk" : "Vypnout zvuk"}
+              aria-pressed={!muted}
+              style={{ ...controlStyle, position: "absolute", bottom: 12, left: 12, zIndex: 2 }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+            >
+              {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+            </button>
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+              aria-label="Zavřít celou obrazovku"
               style={{ ...controlStyle, position: "absolute", bottom: 12, right: 12, zIndex: 2 }}
               onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
             >
-              {playing ? <Pause size={16} /> : <Play size={16} />}
+              <Minimize2 size={16} />
             </button>
           </div>
         </div>
