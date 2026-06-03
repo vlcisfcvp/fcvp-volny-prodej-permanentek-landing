@@ -224,22 +224,19 @@ function Banner({ inView }: { inView: boolean }) {
       initial={{ opacity: 0 }}
       animate={inView ? { opacity: 1 } : {}}
       transition={{ duration: 0.5, delay: 0.7, ease: EASE }}
-      className="relative mt-8 overflow-hidden w-screen -ml-6 rounded-none md:w-full md:max-w-[880px] md:mx-auto md:rounded-[16px] md:aspect-[16/9]"
+      className="relative mt-8 overflow-hidden w-screen -ml-6 rounded-none md:w-full md:max-w-[880px] md:mx-auto md:rounded-[16px]"
     >
-      <img
-        src="/s10-banner-desktop.jpg"
-        alt="Viktoria Key"
-        loading="lazy"
-        decoding="async"
-        className="hidden md:block w-full h-full object-cover object-top"
-      />
-      <img
-        src="/s10-banner-mobile.jpg"
-        alt="Viktoria Key"
-        loading="eager"
-        decoding="async"
-        className="block md:hidden w-full h-auto object-cover object-top"
-      />
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/s10-banner-desktop.jpg" />
+        <img
+          src="/s10-banner-mobile.jpg"
+          alt="Viktoria Key"
+          loading="eager"
+          decoding="async"
+          className="block w-full h-auto"
+          style={{ objectFit: "cover", objectPosition: "center top" }}
+        />
+      </picture>
       <div
         className="absolute inset-0 pointer-events-none"
         style={{ zIndex: 1, background: "linear-gradient(180deg, rgba(14,17,41,0) 0%, rgba(14,17,41,0.4) 50%, rgba(14,17,41,0.95) 100%)" }}
@@ -251,6 +248,7 @@ function Banner({ inView }: { inView: boolean }) {
     </motion.div>
   );
 }
+
 
 
 
