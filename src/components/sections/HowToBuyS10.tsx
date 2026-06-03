@@ -302,7 +302,7 @@ export function HowToBuyS10() {
           style={{ marginTop: 64 }}
         >
           <a
-            href="https://fcvpklubovka.cz/"
+            href="https://eshop.fcviktoria.cz/"
             className="s10-cta"
             style={{
               display: "inline-flex",
