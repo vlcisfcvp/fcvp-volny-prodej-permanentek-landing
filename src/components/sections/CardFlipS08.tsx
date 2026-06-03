@@ -235,8 +235,19 @@ export function CardFlipS08() {
                 </button>
                 <button
                   type="button"
+                  onClick={togglePlay}
+                  aria-label={playing ? "Pozastavit" : "Přehrát"}
+                  style={controlStyle}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
+                >
+                  {playing ? <Pause size={16} /> : <Play size={16} />}
+                </button>
+                <button
+                  type="button"
                   onClick={toggleLightbox}
                   aria-label={lightboxOpen ? "Zavřít celou obrazovku" : "Zobrazit na celou obrazovku"}
+                  className="hidden md:inline-flex"
                   style={controlStyle}
                   onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.75)"; }}
