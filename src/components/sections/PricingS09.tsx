@@ -42,7 +42,7 @@ export function PricingS09() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0 }}
-            className="relative order-1 flex flex-col rounded-xl p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1"
+            className="relative order-1 md:order-2 flex flex-col rounded-xl p-6 md:p-8 transition-all duration-300 md:hover:-translate-y-1"
             style={{
               background: "linear-gradient(#252a52, #252a52) padding-box, linear-gradient(135deg, #e0001a 0%, #005ea7 100%) border-box",
               border: "1.5px solid transparent",
