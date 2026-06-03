@@ -117,14 +117,14 @@ export function PartnersS04() {
               <div
                 className="relative w-full overflow-hidden"
                 style={{
-                  height: "var(--photo-h, 160px)",
+                  height: "var(--photo-h, 220px)",
                   borderTopLeftRadius: 16,
                   borderTopRightRadius: 16,
                   background: "#2d3360",
                 }}
               >
                 <div
-                  className="md:h-[160px] h-[120px] w-full"
+                  className="md:h-[220px] h-[180px] w-full"
                   style={{ position: "absolute", inset: 0 }}
                 >
                   <img
