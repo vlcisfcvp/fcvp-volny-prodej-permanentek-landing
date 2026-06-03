@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Youtube, Twitter } from "lucide-react";
+import { Facebook, Instagram, Youtube, X } from "lucide-react";
 
 export function FooterS14() {
   return (
@@ -45,11 +45,11 @@ export function FooterS14() {
             <div className="mt-4 flex gap-3 text-text-secondary">
               {[
                 { Icon: Facebook, href: "https://www.facebook.com/fcviktoria.cz" },
-                { Icon: Instagram, href: "https://www.instagram.com/fcviktoria_official" },
-                { Icon: Youtube, href: "https://www.youtube.com/user/viktoriaplzentv" },
-                { Icon: Twitter, href: "https://x.com/fcviktorkaplzen" }
+                { Icon: Instagram, href: "https://www.instagram.com/fcviktoria_official/" },
+                { Icon: Youtube, href: "https://www.youtube.com/@fcvpTV" },
+                { Icon: X, href: "https://x.com/fcviktorkaplzen?lang=cs" }
               ].map((social, i) => (
-                <a key={i} href={social.href} target="_blank" rel="noopener" className="transition-colors hover:text-text-accent-red">
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-text-accent-red">
                   <social.Icon size={24} />
                 </a>
               ))}
