@@ -7,7 +7,7 @@ import { SecondaryButton } from "../ui/SecondaryButton";
 const standardFeatures = [
   "Tvoje místo na každém domácím utkání (Chance liga + MOL Cup bez starostí)",
   "Nižší cena než u jednotlivých vstupenek (úspora několik stovek korun)",
-  "Přednostní nákup vstupenek na evropské poháry",
+  "Přednost na evropské poháry",
   "200 Kč sleva do Klubovky",
   "300 Kč sleva do fanshopu",
   "Celoroční výhody u partnerů klubu",
@@ -15,7 +15,7 @@ const standardFeatures = [
 const extraFeatures = [
   "Tvoje místo na každém domácím utkání (Chance liga + MOL Cup bez starostí)",
   "Nižší cena než u jednotlivých vstupenek (úspora několik stovek korun)",
-  "Přednostní nákup vstupenek na evropské poháry",
+  "Přednost na evropské poháry",
   "200 Kč sleva do Klubovky",
   "300 Kč sleva do fanshopu",
   "Celoroční výhody u partnerů klubu",
