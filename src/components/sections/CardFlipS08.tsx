@@ -23,6 +23,12 @@ export function CardFlipS08() {
     const v = backVideoRef.current;
     if (!v) return;
     if (flipped) {
+      // On first flip, promote preload from "metadata" to "auto" so the
+      // browser starts buffering the full file for subsequent flips.
+      if (v.preload !== "auto") {
+        v.preload = "auto";
+        try { v.load(); } catch {}
+      }
       v.play().catch(() => {});
     } else {
       v.pause();
@@ -215,6 +221,7 @@ export function CardFlipS08() {
                 muted
                 loop
                 playsInline
+                preload="metadata"
               >
                 <source src={cardBackVideo.url} type="video/mp4" />
               </video>
