@@ -4,8 +4,8 @@ import { Armchair, TrendingDown, Ticket, Beer, Shirt, Gift, type LucideIcon } fr
 
 const items: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: Armchair, title: "Tvoje místo na domácích zápasech", desc: "Chance Liga i MOL Cup bez starostí. Každý domácí zápas na svém místě." },
-  { icon: TrendingDown, title: "Výhodnější cena na celou sezonu", desc: "Permanentka vychází výhodněji než nákup jednotlivých vstupenek na každý zápas zvlášť." },
-  { icon: Ticket, title: "Přednostní nákup vstupenek na evropské poháry", desc: "Možnost zajistit si vstupenky na evropské zápasy ještě před startem volného prodeje, a navíc se slevou." },
+  { icon: TrendingDown, title: "Výhodnější cena", desc: "Permanentka vychází výhodněji než nákup jednotlivých vstupenek." },
+  { icon: Ticket, title: "Přednost na evropské poháry", desc: "Možnost zajistit si vstupenky na evropské zápasy ještě před startem volného prodeje, a navíc se slevou." },
   { icon: Beer, title: "200 Kč sleva do Klubovky", desc: "Tvoje místo pro předzápasovou náladu." },
   { icon: Shirt, title: "300 Kč sleva do fanshopu", desc: "Dresy, šály a oficiální merchandise." },
   { icon: Gift, title: "Celoroční výhody u partnerů klubu", desc: "Slevy a benefity mimo stadion. Viz sekce Partneři." },
