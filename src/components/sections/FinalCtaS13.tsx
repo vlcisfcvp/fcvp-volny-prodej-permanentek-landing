@@ -9,31 +9,14 @@ export function FinalCtaS13() {
     <section
       id="s13"
       aria-label="Poslední krok"
-      className="relative flex items-center justify-center bg-bg-base v-edge-top overflow-hidden"
-      style={{ minHeight: "80vh" }}
+      className="relative flex items-end justify-center bg-bg-base v-edge-top overflow-hidden"
+      style={{ minHeight: "auto" }}
     >
       <div
         aria-hidden
         className="absolute inset-0"
         style={{ background: "radial-gradient(circle at 50% 50%, rgba(224,0,26,0.08) 0%, transparent 60%)" }}
       />
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ height: "60%", width: "auto" }}
-        viewBox="0 0 400 400" fill="none"
-      >
-        <path
-          d="M40 40 L200 360 L360 40"
-          stroke="rgba(224,0,26,0.15)"
-          strokeWidth={3}
-          style={{
-            strokeDasharray: 1000,
-            strokeDashoffset: inView ? 0 : 1000,
-            transition: "stroke-dashoffset 1400ms ease-out",
-          }}
-        />
-      </svg>
       <div ref={ref} className="relative z-10 mx-auto max-w-narrow px-6 py-24 text-center">
         <motion.span
           initial={{ opacity: 0, y: 16 }} animate={inView ? { opacity: 1, y: 0 } : {}}
