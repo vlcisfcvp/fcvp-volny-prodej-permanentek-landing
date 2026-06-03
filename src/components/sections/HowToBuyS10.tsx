@@ -233,7 +233,7 @@ function Banner({ inView }: { inView: boolean }) {
       />
       <div
         className="block md:hidden"
-        style={{ background: "#e0001a", width: "100%", height: "100%", minHeight: 300 }}
+        style={{ background: "#e0001a", width: "100%", minHeight: 300, height: 300 }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
@@ -246,7 +246,7 @@ function Banner({ inView }: { inView: boolean }) {
         .s10-banner-wrap {
           width: 100vw;
           margin-left: calc(-1 * var(--container-padding, 24px));
-          aspect-ratio: 9 / 16;
+          height: 300px;
           border-radius: 0;
         }
         @media (min-width: 768px) {
