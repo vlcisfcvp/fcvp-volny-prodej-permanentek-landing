@@ -115,9 +115,8 @@ export function PartnersS04() {
             >
               {/* Layer 1 — Photo */}
               <div
-                className="relative w-full overflow-hidden"
+                className="relative w-full overflow-hidden h-[180px] md:h-[220px]"
                 style={{
-                  height: "var(--photo-h, 220px)",
                   borderTopLeftRadius: 16,
                   borderTopRightRadius: 16,
                   background: "#2d3360",
@@ -125,43 +124,42 @@ export function PartnersS04() {
                   fontSize: 0,
                   margin: 0,
                   padding: 0,
+                  display: "block",
                 }}
               >
+                <img
+                  src={p.photo}
+                  alt=""
+                  className="h-full w-full object-cover object-center transition-transform md:group-hover:scale-[1.04]"
+                  style={{
+                    display: "block",
+                    margin: 0,
+                    padding: 0,
+                    verticalAlign: "top",
+                    transitionDuration: reduceMotion ? "100ms" : "400ms",
+                    transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+                  }}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
                 <div
-                  className="md:h-[220px] h-[180px] w-full"
-                  style={{ position: "absolute", inset: 0, lineHeight: 0, fontSize: 0 }}
+                  className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(14,17,41,0) 40%, rgba(14,17,41,0.35) 100%)",
+                  }}
                 >
-                  <img
-                    src={p.photo}
-                    alt=""
-                    className="h-full w-full object-cover object-center transition-transform md:group-hover:scale-[1.04]"
-                    style={{
-                      display: "block",
-                      transitionDuration: reduceMotion ? "100ms" : "400ms",
-                      transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-                    }}
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                    }}
+                  <ImageIcon
+                    size={24}
+                    style={{ color: "rgba(255,255,255,0.2)" }}
+                    className="opacity-0 [.group:has(img[style*='display:none'])_&]:opacity-100"
                   />
-                  <div
-                    className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(14,17,41,0) 40%, rgba(14,17,41,0.35) 100%)",
-                    }}
-                  >
-                    <ImageIcon
-                      size={24}
-                      style={{ color: "rgba(255,255,255,0.2)" }}
-                      className="opacity-0 [.group:has(img[style*='display:none'])_&]:opacity-100"
-                    />
-                  </div>
                 </div>
               </div>
 
               {/* Layer 2 — Logo */}
-              <div className="flex items-center justify-center pt-4 pb-4 md:pt-6">
+              <div className="flex items-center justify-center pb-4 pt-4 md:pt-5" style={{ marginTop: 0 }}>
                 <span
                   className="uppercase transition-opacity md:group-hover:opacity-100"
                   style={{
