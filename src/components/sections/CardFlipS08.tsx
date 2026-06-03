@@ -5,6 +5,7 @@ import { Hand, VolumeX, Volume2, Maximize2, Minimize2, Play, Pause } from "lucid
 import cardFrontImage from "@/assets/permanentka-extra.png.asset.json";
 import cardBackVideo from "@/assets/card-back.mp4.asset.json";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { registerVideo, pauseAllExcept } from "@/hooks/useVideoManager";
 
 export function CardFlipS08() {
   const isMobile = useIsMobile();
@@ -22,13 +23,19 @@ export function CardFlipS08() {
   useEffect(() => {
     const v = backVideoRef.current;
     if (!v) return;
+    const unregister = registerVideo(v);
+    return unregister;
+  }, []);
+
+  useEffect(() => {
+    const v = backVideoRef.current;
+    if (!v) return;
     if (flipped) {
-      // On first flip, promote preload from "metadata" to "auto" so the
-      // browser starts buffering the full file for subsequent flips.
       if (v.preload !== "auto") {
         v.preload = "auto";
         try { v.load(); } catch {}
       }
+      pauseAllExcept(v);
       v.play().catch(() => {});
     } else {
       v.pause();
@@ -217,7 +224,6 @@ export function CardFlipS08() {
                 ref={backVideoRef}
                 className="h-full w-full"
                 style={{ objectFit: "cover", borderRadius: 24 }}
-                autoPlay
                 muted
                 loop
                 playsInline
