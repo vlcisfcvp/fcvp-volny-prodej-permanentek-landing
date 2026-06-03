@@ -57,7 +57,7 @@ export function FinalCtaS13() {
 
         </motion.div>
         <p className="mt-6 t-body-small text-text-tertiary">
-          Permanentka platí na všech 17 domácích zápasů sezony 2026/2027.
+          &#8203;
         </p>
       </div>
     </section>
