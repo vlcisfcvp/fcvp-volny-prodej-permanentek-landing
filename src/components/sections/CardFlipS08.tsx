@@ -119,6 +119,7 @@ export function CardFlipS08() {
 
   const toggleLightbox = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (isMobile) return;
     if (lightboxOpen) {
       closeLightbox();
     } else {
