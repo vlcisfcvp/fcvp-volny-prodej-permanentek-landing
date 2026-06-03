@@ -13,8 +13,6 @@ export function FooterS14() {
             <h4 className="t-label text-text-accent-blue">Klub</h4>
             <ul className="mt-4 space-y-2 t-body text-text-secondary">
               {[
-                { label: "O klubu", href: "https://www.fcviktoria.cz/" },
-                { label: "Hráči", href: "https://www.fcviktoria.cz/" },
                 { label: "Aktuality", href: "https://www.fcviktoria.cz/" },
                 { label: "Stadion", href: "https://www.fcviktoria.cz/zobraz.asp?t=stadion-plan-stadionu" }
               ].map((item) => (
@@ -30,7 +28,6 @@ export function FooterS14() {
             <h4 className="t-label text-text-accent-blue">Servis</h4>
             <ul className="mt-4 space-y-2 t-body text-text-secondary">
               {[
-                { label: "Kontakt", href: "https://www.fcviktoria.cz/" },
                 { label: "Klubovka", href: "https://fcvpklubovka.cz/" },
                 { label: "Fanshop", href: "https://eshop.fcviktoria.cz/" },
                 { label: "Viktoria Key", href: "https://fcviktoria.unidy.app/logins" }
