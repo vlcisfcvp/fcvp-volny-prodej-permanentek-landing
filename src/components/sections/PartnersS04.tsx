@@ -61,27 +61,13 @@ export function PartnersS04() {
       <div className="mx-auto max-w-content px-6 md:px-12">
         <div className="text-center">
           <span
-            className="uppercase"
-            style={{
-              fontFamily: "Rajdhani, sans-serif",
-              fontWeight: 600,
-              fontSize: 12,
-              letterSpacing: "0.12em",
-              color: "#3a8fd6",
-            }}
+            className="text-[13px] font-semibold tracking-widest uppercase"
+            style={{ fontFamily: "Rajdhani, sans-serif", color: "#3a8fd6" }}
           >
             Partneři klubu
           </span>
-          <h2
-            className="mt-4 uppercase"
-            style={{
-              fontFamily: "Rajdhani, sans-serif",
-              fontWeight: 700,
-              color: "#ffffff",
-              lineHeight: 1.05,
-            }}
-          >
-            <span className="block text-[32px] md:text-[48px]">Výhody pro permanentkáře</span>
+          <h2 className="mt-4 t-h1-m md:t-h1-d text-text-primary">
+            Výhody pro permanentkáře
           </h2>
         </div>
 
