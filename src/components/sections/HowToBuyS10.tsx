@@ -227,21 +227,13 @@ function Banner({ inView }: { inView: boolean }) {
       className="s10-banner-wrap relative mt-8 overflow-hidden"
     >
       <div className="s10-banner-border hidden md:block absolute inset-0 rounded-[16px]" style={{ border: "1px solid rgba(255,255,255,0.08)", pointerEvents: "none", zIndex: 2 }} />
-      <img
-        src="/s10-banner-desktop.jpg"
-        alt="Viktoria Key"
-        loading="lazy"
-        decoding="async"
+      <div
         className="hidden md:block"
-        style={{ display: "block", width: "100%", height: "auto" }}
+        style={{ background: "#005ea7", width: "100%", height: "100%", minHeight: 300 }}
       />
-      <img
-        src="/s10-banner-mobile.jpg"
-        alt="Viktoria Key"
-        loading="lazy"
-        decoding="async"
+      <div
         className="block md:hidden"
-        style={{ display: "block", width: "100%", height: "auto" }}
+        style={{ background: "#e0001a", width: "100%", height: "100%", minHeight: 300 }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
