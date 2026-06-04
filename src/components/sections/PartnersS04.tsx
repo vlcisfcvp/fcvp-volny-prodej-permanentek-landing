@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ImageIcon } from "lucide-react";
+import benefityPdf from "@/assets/Benefity-2026-2027.pdf.asset.json";
+
 
 const partners: { name: string; url: string; benefit: string; photo: string }[] = [
   {
