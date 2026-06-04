@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Armchair, TrendingDown, Ticket, Beer, Shirt, Gift, type LucideIcon } from "lucide-react";
+import { Armchair, TrendingDown, Ticket, Beer, Shirt, Gift, Download, type LucideIcon } from "lucide-react";
+import benefityPdf from "@/assets/benefity-2026-2027.pdf.asset.json";
 
 const items: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: Armchair, title: "Tvoje místo na domácích zápasech", desc: "Chance Liga i MOL Cup bez starostí. Každý domácí zápas na svém místě." },
@@ -40,6 +41,17 @@ export function BenefitsS03() {
               </motion.div>
             );
           })}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={benefityPdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-border-default bg-bg-elevated px-6 py-3 t-body font-semibold text-text-primary transition-all duration-300 hover:bg-bg-elevated-hover hover:border-border-strong"
+          >
+            <Download size={18} strokeWidth={2} />
+            Stáhnout benefitní program 2026/27 (PDF)
+          </a>
         </div>
       </div>
     </section>
