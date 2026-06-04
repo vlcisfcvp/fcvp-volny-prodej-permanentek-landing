@@ -70,7 +70,7 @@ export function PricingS09() {
               ))}
             </ul>
             <div className="mt-auto pt-6">
-              <PrimaryButton href="https://bit.ly/4jWo0ke" className="w-full">Koupit EXTRA</PrimaryButton>
+              <PrimaryButton href="https://bit.ly/4o6hqul" className="w-full">Koupit EXTRA</PrimaryButton>
             </div>
           </motion.div>
 
