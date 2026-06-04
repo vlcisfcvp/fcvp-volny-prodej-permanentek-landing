@@ -217,7 +217,9 @@ export function PartnersS04() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="#"
+            href={benefityPdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="uppercase"
             style={{
               background: "transparent",
