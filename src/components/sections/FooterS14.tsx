@@ -29,7 +29,7 @@ export function FooterS14() {
             <ul className="mt-4 space-y-2 t-body text-text-secondary">
               {[
                 { label: "Klubovka", href: "https://fcvpklubovka.cz/" },
-                { label: "Fanshop", href: "https://eshop.fcviktoria.cz/" },
+                { label: "Fanshop", href: "https://permanentky.fcviktoria.cz/#pricing" },
                 { label: "Viktoria Key", href: "https://fcviktoria.unidy.app/logins" }
               ].map((item) => (
                 <li key={item.label}>
