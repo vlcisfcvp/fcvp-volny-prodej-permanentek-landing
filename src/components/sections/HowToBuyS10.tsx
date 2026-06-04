@@ -309,7 +309,7 @@ export function HowToBuyS10() {
           style={{ marginTop: 64 }}
         >
           <a
-            href="https://eshop.fcviktoria.cz/"
+            href="https://permanentky.fcviktoria.cz/#pricing"
             className="s10-cta"
             style={{
               display: "inline-flex",
