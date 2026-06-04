@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Armchair, TrendingDown, Ticket, Beer, Shirt, Gift, Download, type LucideIcon } from "lucide-react";
-import benefityPdf from "@/assets/benefity-2026-2027.pdf.asset.json";
+import benefityPdf from "@/assets/Benefity-2026-2027.pdf.asset.json";
 
 const items: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: Armchair, title: "Tvoje místo na domácích zápasech", desc: "Chance Liga i MOL Cup bez starostí. Každý domácí zápas na svém místě." },
