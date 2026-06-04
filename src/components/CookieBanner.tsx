@@ -130,7 +130,7 @@ export default function CookieBanner() {
           borderRadius: 8, cursor: "pointer", fontFamily: "'Rajdhani', sans-serif",
           fontSize: 13, fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" as const,
         }}>
-          Odmítnout
+          Pouze nezbytné
         </button>
         <button onClick={accept} style={{
           background: "transparent", color: "#ffffff",
