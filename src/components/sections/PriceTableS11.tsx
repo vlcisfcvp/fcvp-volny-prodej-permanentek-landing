@@ -33,7 +33,7 @@ export function PriceTableS11() {
         </motion.div>
 
         <div className="mx-auto mt-10 flex max-w-pricing flex-col gap-3 md:flex-row md:justify-center md:gap-4">
-          <SecondaryButton href="https://bit.ly/4j7TSS2">Koupit STANDARD</SecondaryButton>
+          <SecondaryButton href="https://bit.ly/43LBokQ">Koupit STANDARD</SecondaryButton>
           <PrimaryButton href="https://bit.ly/4jWo0ke">Koupit EXTRA</PrimaryButton>
         </div>
       </div>
