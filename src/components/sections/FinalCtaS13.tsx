@@ -10,7 +10,7 @@ export function FinalCtaS13() {
       id="s13"
       aria-label="Poslední krok"
       className="relative flex items-center justify-center bg-bg-base v-edge-top overflow-hidden"
-      style={{ paddingTop: "96px", paddingBottom: "96px" }}
+      style={{ paddingTop: "96px", paddingBottom: "48px" }}
     >
       <div
         aria-hidden
