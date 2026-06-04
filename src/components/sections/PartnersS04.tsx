@@ -1,6 +1,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ImageIcon } from "lucide-react";
+import benefityPdf from "@/assets/Benefity-2026-2027.pdf.asset.json";
+
 
 const partners: { name: string; url: string; benefit: string; photo: string }[] = [
   {
@@ -215,7 +217,9 @@ export function PartnersS04() {
 
         <div className="mt-12 flex justify-center">
           <a
-            href="#"
+            href={benefityPdf.url}
+            target="_blank"
+            rel="noopener noreferrer"
             className="uppercase"
             style={{
               background: "transparent",
