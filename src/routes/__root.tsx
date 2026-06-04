@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import CookieBanner from "../components/CookieBanner";
 
 function NotFoundComponent() {
   return (
@@ -91,6 +92,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         </noscript>
         {children}
         <Scripts />
+        <CookieBanner />
         <style
           dangerouslySetInnerHTML={{
             __html: `
