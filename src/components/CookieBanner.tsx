@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 const META_PIXEL_ID = "169818827636632";
 const SKLIK_ID = 100259849;
 
