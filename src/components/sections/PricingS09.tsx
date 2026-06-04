@@ -94,7 +94,7 @@ export function PricingS09() {
               ))}
             </ul>
             <div className="mt-auto pt-6">
-              <SecondaryButton href="https://bit.ly/4j7TSS2" className="w-full">Koupit STANDARD</SecondaryButton>
+              <SecondaryButton href="https://bit.ly/43LBokQ" className="w-full">Koupit STANDARD</SecondaryButton>
             </div>
           </motion.div>
         </div>

@@ -33,7 +33,7 @@ export function FinalCtaS13() {
           transition={{ duration: 0.7, delay: 0.36 }}
           className="mt-8 flex flex-col items-center justify-center gap-3 md:flex-row md:gap-4"
         >
-          <SecondaryButton href="https://bit.ly/4j7TSS2">Koupit STANDARD</SecondaryButton>
+          <SecondaryButton href="https://bit.ly/43LBokQ">Koupit STANDARD</SecondaryButton>
           <motion.div animate={{ boxShadow: ["0 8px 24px rgba(224,0,26,0.35)", "0 8px 32px rgba(224,0,26,0.6)", "0 8px 24px rgba(224,0,26,0.35)"] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="rounded-md">
             <PrimaryButton href="https://bit.ly/4jWo0ke">Koupit EXTRA</PrimaryButton>
           </motion.div>
