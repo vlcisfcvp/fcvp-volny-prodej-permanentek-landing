@@ -61,7 +61,7 @@ export function FooterS14() {
         </div>
         <div className="mt-12 flex flex-col gap-3 border-t border-border-default pt-6 md:flex-row md:justify-between">
           <p className="t-body-small text-text-muted">© 2026 FC Viktoria Plzeň, a.s. Všechna práva vyhrazena.</p>
-          <p className="t-body-small text-text-muted">Zásady ochrany osobních údajů · Cookies</p>
+          <p className="t-body-small text-text-muted">Cookies</p>
         </div>
       </div>
     </footer>
