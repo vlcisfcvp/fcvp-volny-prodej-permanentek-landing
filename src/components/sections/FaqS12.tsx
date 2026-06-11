@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Musí i důchodci nad 65 let platit fyzickou kartičku?",
-    a: "Ne, důchodci nad 65 let nebudou muset platit 150 Kč za fyzickou permanentku. Musí si ji ale vyzvednout na Ticketpointu Doosan Areny.",
+    a: "Ne, důchodci nad 65 let nebudou muset platit 150 Kč za fyzickou permanentku. Musí si ji ale vyzvednout ve Viktoria shopu.",
   },
 ];
 

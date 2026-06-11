@@ -25,19 +25,19 @@ const cards = [
         Pokud chcete mít kromě digitální verze také klasickou fyzickou kartu, můžete si ji
         při nákupu jednoduše objednat za poplatek{" "}
         <span style={{ fontWeight: 700, color: "#ff2a3d" }}>150 Kč</span> + poštovné. Kartu
-        bude možné zaslat poštou nebo vyzvednout osobně na Ticketpointu Doosan Areny.
+        bude možné zaslat poštou nebo vyzvednout osobně ve Viktoria shopu.
       </>
     ),
   },
   {
     Icon: MapPin,
-    title: "Nákup online i na Ticketpointu",
+    title: "Nákup online i ve Viktoria shopu",
     body: (
       <>
-        Permanentku si můžete pořídit online nebo osobně na Ticketpointu Doosan Areny.
-        Pokud už máte založený Viktoria Key, stačí při návštěvě Ticketpointu ukázat QR kód
-        svého účtu nebo nadiktovat e-mailovou adresu. V případě osobního nákupu na
-        Ticketpointu je fyzická karta povinná a je spojena s poplatkem{" "}
+        Permanentku si můžete pořídit online nebo osobně ve Viktoria shopu.
+        Pokud už máte založený Viktoria Key, stačí při návštěvě Viktoria shopu ukázat QR kód
+        svého účtu nebo nadiktovat e-mailovou adresu. V případě osobního nákupu ve
+        Viktoria shopu je fyzická karta povinná a je spojena s poplatkem{" "}
         <span style={{ fontWeight: 700, color: "#ff2a3d" }}>150 Kč</span>.
       </>
     ),
